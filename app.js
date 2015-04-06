@@ -37,6 +37,27 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Success and Error messages
+ */
+app.use(function(request, result, next) {
+	
+	var error = request.session.error;
+	var message =  request.session.success;
+	
+	delete request.session.error;
+	delete request.session.success;
+	
+	result.locals.message = '';
+	
+	if (error)
+		result.locals.message = '<p class="msg error">' + error + '</p>';
+	if (success) 
+		result.locals.message = '<p class="msg success">' + message + '</p>';
+
+	next();
+});
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
