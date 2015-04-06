@@ -3,13 +3,11 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path')
-  , mongoose = require('mongoose')
-  , hash = require('./pass').hash;
+var express = require('express'),
+    http = require('http'),
+    path = require('path'),
+    mongoose = require('mongoose'),
+    hash = require('./pass').hash;
 
 var app = express();
 
