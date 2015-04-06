@@ -7,12 +7,24 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require('mongoose')
+  , hash = require('./pass').hash;
 
 var app = express();
 
-var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('localhost', 'mytestapp');
+/** 
+ * Database and Models 
+ */
+mongoose.connect("mongodb://localhost/users");
+var userSchema = new mongoose.Schema({
+	username: String,
+    password: String,
+    salt: String,
+    hash: String
+});
+
+var User = mongoose.model('users', userSchema);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
