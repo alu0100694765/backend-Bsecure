@@ -28,7 +28,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.cookieParser('Authentication Tutorial '));
     app.use(express.session());
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, '/public')));
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
 });
@@ -98,8 +98,8 @@ app.get("/", function (req, res) {
     if (req.session.user) {
         res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
     } else {
-        //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
-        res.render("login");
+        res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
+        //res.render("login");
     }
 });
 
