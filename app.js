@@ -69,3 +69,53 @@ app.get('/users', user.list);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+/**
+ * Helper functions
+ */
+function authenticate(name, password, fn) {
+	if (!module.parent) 
+		console.log('authenticating %s:%s', name, password);
+
+	User.findOne({
+		username: name
+	},  function (err, user) {
+        	if (user) {
+            	if (err) 
+            		return fn(new Error('cannot find user'));
+            		
+            		hash(pass, user.salt, function (err, hash) {
+                		if (err) 
+                			return fn(err);
+                		if (hash == user.hash) 
+                			return fn(null, user);
+                		fn(new Error('invalid password'));
+            		});
+        	} else {
+            	return fn(new Error('cannot find user'));
+        	}
+    });
+}
+
+function requiredAuthentication(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        req.session.error = 'Access denied!';
+        res.redirect('/login');
+    }
+}
+
+function userExist(req, res, next) {
+    User.count({
+        username: req.body.username
+    }, function (err, count) {
+        if (count === 0) {
+            next();
+        } else {
+            req.session.error = "User Exist"
+            res.redirect("/signup");
+        }
+    });
+}
+
