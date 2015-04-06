@@ -1,8 +1,17 @@
-form(id="login", method="POST", action="/login")
-	lable(for='username') User Name
-	input#username(type='text', name='username')
-	lable(for='password') Password
-	input#password(type='text', name='password')
-	input(type="submit", value="Log In")
-		
-h1!=message
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title CodePen - Login Form
+    link(rel='stylesheet', href='css/style.css')
+  body
+    span#toggle-login.button(href='#') Log in
+    #login
+      #triangle
+      h1 Log in
+      form
+        input(type='email', placeholder='Email')
+        input(type='password', placeholder='Password')
+        input(type='submit', value='Log in')
+    script(src='http://codepen.io/assets/libs/fullpage/jquery.js')
+    script(src='js/index.js')
