@@ -26,36 +26,30 @@ var userSchema = new mongoose.Schema({
 
 var User = mongoose.model('users', userSchema);
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+/*
+Middlewares and configurations 
+*/
+app.configure(function () {
+    app.use(express.bodyParser());
+    app.use(express.cookieParser('Authentication Tutorial '));
+    app.use(express.session());
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+});
 
 /**
  * Success and Error messages
  */
-app.use(function(request, result, next) {
-	
-	var error = request.session.error;
-	var message =  request.session.success;
-	
-	delete request.session.error;
-	delete request.session.success;
-	
-	result.locals.message = '';
-	
-	if (error)
-		result.locals.message = '<p class="msg error">' + error + '</p>';
-	if (success) 
-		result.locals.message = '<p class="msg success">' + message + '</p>';
-
-	next();
+app.use(function (req, res, next) {
+    var err = req.session.error,
+        msg = req.session.success;
+    delete req.session.error;
+    delete req.session.success;
+    res.locals.message = '';
+    if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
+    if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
+    next();
 });
 
 // development only
@@ -193,6 +187,4 @@ app.get('/profile', requiredAuthentication, function (req, res) {
 /**
  * Create app and listen on port 3000
  */
- http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+ http.createServer(app).listen(3000);
