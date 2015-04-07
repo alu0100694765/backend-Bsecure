@@ -9,6 +9,10 @@
   margin: 10px;
 }
 
+body{
+  background:#567;
+}
+
 .datepicker-dropdown {
   z-index: 200 !important;
 }
