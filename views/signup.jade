@@ -35,7 +35,7 @@ html
               .col-md-8
                 .col-md-2
                   .form-group.internal
-                    select#id_title.form-control
+                    select#id_title.form-control(name='id_title')
                       option Mr
                       option Ms                    
                       option Mrs
@@ -43,10 +43,10 @@ html
                       option Dr
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_first_name.form-control(placeholder='First Name', type='text')
+                    input#id_first_name.form-control(placeholder='First Name', type='text', name='id_first_name')
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_last_name.form-control(placeholder='Last Name', type='text')
+                    input#id_last_name.form-control(placeholder='Last Name', type='text', name='id_last_name')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Age
               .col-md-8
@@ -54,13 +54,13 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_age.form-control(placeholder='Age', type='text')
+                        input#id_age.form-control(placeholder='Age', type='text', name='id_age')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Sex
               .col-md-8
                 .col-md-2
                   .form-group.internal
-                    select#id_gender.form-control
+                    select#id_gender.form-control(name='id_sex')
                       option Male
                       option Female                    
                       option Other
@@ -69,18 +69,18 @@ html
               .col-md-8
                 .col-md-2
                   .form-group.internal
-                    select#id_identification.form-control
+                    select#id_identification.form-control(name='id_identification')
                       option NIF
                       option NIE                    
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_number.form-control(placeholder='ID NUMBER', type='text')
+                    input#id_number.form-control(placeholder='ID NUMBER', type='text', name='id_number')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_address') Address
               .col-md-8
                 .form-group
                   .col-md-11
-                    input#id_address_text.form-control(placeholder='Address', type='text')
+                    input#id_address_text.form-control(placeholder='Address', type='text', name='id_address')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Locality
               .col-md-8
@@ -88,7 +88,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_locality.form-control(placeholder='Locality', type='text')
+                        input#id_locality.form-control(placeholder='Locality', type='text', name='id_locality')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') City
               .col-md-8
@@ -96,7 +96,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_city.form-control(placeholder='City', type='text')
+                        input#id_city.form-control(placeholder='City', type='text', name='id_city')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Zip code
               .col-md-8
@@ -104,7 +104,7 @@ html
                   .form-group.internal
                     .col-md-3.indent-small
                       .form-group.internal
-                        input#id_zip_code.form-control(placeholder='Zip code', type='number')
+                        input#id_zip_code.form-control(placeholder='Zip code', type='number', name='id_zip_code')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Country
               .col-md-8
@@ -112,7 +112,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        select#id_country.form-control(name='Country')
+                        select#id_country.form-control(name='id_country')
                           option(value='', selected='selected') Select Country
                           option(value='United States') United States
                           option(value='United Kingdom') United Kingdom
@@ -360,7 +360,7 @@ html
               .col-md-6
                 .form-group
                   .col-md-11
-                    input#id_email.form-control(placeholder='E-mail', type='text')
+                    input#id_email.form-control(placeholder='E-mail', type='text', name='id_email')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Phone
               .col-md-8
@@ -368,7 +368,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text')
+                        input#id_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text', name='id_phone')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Alternative Phone
               .col-md-8
@@ -376,25 +376,25 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_alternative_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text')
+                        input#id_alternative_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text', name='id_alternative_phone')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_equipment') Heart patient
               .col-md-8
                 .col-md-3
                   .form-group.internal
                     #id_slide_switch.make-switch(data-off-label='NO', data-on-label='YES')
-                      input#id_heart(type='checkbox', value='chk_hydro')
+                      input#id_heart(type='checkbox', value='chk_hydro', name='id_heart')
                 .col-md-9
                   .form-group.internal
                     label.control-label.col-md-3(for='id_respiratory') Respiratory problems
                     #id_slide_switch.make-switch(data-off-label='NO', data-on-label='YES')
-                      input#id_slide(type='checkbox', value='chk_hydro')
+                      input#id_slide(type='checkbox', value='chk_hydro', name='id_respiratory')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_equipment') Blood group
               .col-md-8
                 .col-md-3
                   .form-group.internal
-                    select#id_blood.form-control
+                    select#id_blood.form-control(name='id_blood')
                       option A +
                       option A -
                       option B +
@@ -407,15 +407,15 @@ html
                   .form-group.internal
                     label.control-label.col-md-3(for='id_slide') Hemophilia
                     #id_slide_switch.make-switch(data-off-label='NO', data-on-label='YES')
-                      input#id_hemophilia(type='checkbox', value='chk_hydro')
+                      input#id_hemophilia(type='checkbox', value='chk_hydro', name='id_hemophilia')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_allergies') Allergies
               .col-md-6
-                textarea#id_allergies.form-control(placeholder='Allergies', rows='3')
+                textarea#id_allergies.form-control(placeholder='Allergies', rows='3', name='id_allergies')
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_comments') Other comments
               .col-md-6
-                textarea#id_comments.form-control(placeholder='Additional comments', rows='3')
+                textarea#id_comments.form-control(placeholder='Additional comments', rows='3', name='id_comments')
             .form-group
               .col-md-offset-4.col-md-3
                 button.btn-lg.btn-primary(type='submit') Request Reservation
