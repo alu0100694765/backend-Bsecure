@@ -23,19 +23,19 @@ html
               .col-md-8
                 .col-md-8
                   .form-group.internal
-                    input#id_username.form-control(placeholder='Username', type='text', name='id_username')
+                    input#id_username.form-control(placeholder='Username', type='text', name='id_username', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_id') Password       
               .col-md-8
                 .col-md-8
                   .form-group.internal
-                    input#id_password.form-control(placeholder='Password', type='password', name='id_password')
+                    input#id_password.form-control(placeholder='Password', type='password', name='id_password', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Personal
               .col-md-8
                 .col-md-2
                   .form-group.internal
-                    select#id_title.form-control(name='id_title')
+                    select#id_title.form-control(name='id_title', required)
                       option Mr
                       option Ms                    
                       option Mrs
@@ -43,10 +43,10 @@ html
                       option Dr
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_first_name.form-control(placeholder='First Name', type='text', name='id_first_name')
+                    input#id_first_name.form-control(placeholder='First Name', type='text', name='id_first_name', required)
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_last_name.form-control(placeholder='Last Name', type='text', name='id_last_name')
+                    input#id_last_name.form-control(placeholder='Last Name', type='text', name='id_last_name', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Age
               .col-md-8
@@ -54,7 +54,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_age.form-control(placeholder='Age', type='text', name='id_age')
+                        input#id_age.form-control(placeholder='Age', type='text', name='id_age', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Sex
               .col-md-8
@@ -74,13 +74,13 @@ html
                       option NIE                    
                 .col-md-3.indent-small
                   .form-group.internal
-                    input#id_number.form-control(placeholder='ID NUMBER', type='text', name='id_number')
+                    input#id_number.form-control(placeholder='ID NUMBER', type='text', name='id_number', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_address') Address
               .col-md-8
                 .form-group
                   .col-md-11
-                    input#id_address_text.form-control(placeholder='Address', type='text', name='id_address')
+                    input#id_address_text.form-control(placeholder='Address', type='text', name='id_address', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Locality
               .col-md-8
@@ -96,7 +96,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_city.form-control(placeholder='City', type='text', name='id_city')
+                        input#id_city.form-control(placeholder='City', type='text', name='id_city', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Zip code
               .col-md-8
@@ -368,7 +368,7 @@ html
                   .form-group.internal
                     .form-group.internal
                       .col-md-11
-                        input#id_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text', name='id_phone')
+                        input#id_phone.form-control(placeholder='Phone: (xxx) - xxx xxxx', type='text', name='id_phone', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_title') Alternative Phone
               .col-md-8
@@ -383,12 +383,12 @@ html
                 .col-md-3
                   .form-group.internal
                     #id_slide_switch.make-switch(data-off-label='NO', data-on-label='YES')
-                      input#id_heart(type='checkbox', name='id_heart')
+                      input#id_heart(type='checkbox', name='id_heart', required)
                 .col-md-9
                   .form-group.internal
                     label.control-label.col-md-3(for='id_respiratory') Respiratory problems
                     #id_slide_switch.make-switch(data-off-label='NO', data-on-label='YES')
-                      input#id_slide(type='checkbox', name='id_respiratory')
+                      input#id_slide(type='checkbox', name='id_respiratory', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_equipment') Blood group
               .col-md-8
@@ -411,7 +411,7 @@ html
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_allergies') Allergies
               .col-md-6
-                textarea#id_allergies.form-control(placeholder='Allergies', rows='3', name='id_allergies')
+                textarea#id_allergies.form-control(placeholder='Allergies', rows='3', name='id_allergies', required)
             .form-group
               label.control-label.col-md-2.col-md-offset-2(for='id_comments') Other comments
               .col-md-6
