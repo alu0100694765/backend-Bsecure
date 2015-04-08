@@ -100,7 +100,7 @@ function requiredAuthentication(req, res, next) {
 
 function userExist(req, res, next) {
     User.count({
-        username: req.body.username
+        username: req.body.id_username
     }, function (err, count) {
         if (count === 0) {
             next();
