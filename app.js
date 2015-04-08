@@ -33,7 +33,7 @@ var UserSchema = new mongoose.Schema({
     secondPhone: Number,
     heartPatient: String,
     respiratoryPatient: String,
-    hemophilia: String,
+    Hemophilia: String,
     bloodGroup: String,
     allergies: String,
     otherComments: String,
@@ -153,7 +153,7 @@ app.post("/signup", userExist, function (req, res) {
     var heart = req.body.id_heart;
     var respiratory = req.body.id_respiratory;
     var blood = req.body.id_blood;
-    var hemophilia = req.body.id_hemophilia.value;
+    var hemophilia = req.body.id_hemophilia;
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
 
