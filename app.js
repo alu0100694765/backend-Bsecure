@@ -22,8 +22,8 @@ var UserSchema = new mongoose.Schema({
     age: Number,
     sex: String,
     idType: String,
-    idNumber: Number,
-    adress: String,
+    idNumber: String,
+    address: String,
     locality: String,
     city: String,
     zipCode: Number,
@@ -33,7 +33,7 @@ var UserSchema = new mongoose.Schema({
     secondPhone: Number,
     heartPatient: String,
     respiratoryPatient: String,
-    Hemophilia: String,
+    hemophilia: String,
     bloodGroup: String,
     allergies: String,
     otherComments: String,
@@ -135,31 +135,53 @@ app.get("/signup", function (req, res) {
 app.post("/signup", userExist, function (req, res) {
     var password = req.body.id_password;
     var username = req.body.id_username;
+    var title = req.body.id_title;
+    var first_name = req.body.id_first_name;
+    var last_name = req.body.id_last_name;
+    var age = req.body.id_age;
+    var sex = req.body.id_sex;
+    var id_type = req.body.id_identification;
+    var id_number = req.body.id_number;
+    var address = req.body.id_address;
+    var locality = req.body.id_locality;
+    var city = req.body.id_city;
+    var zip_code = req.body.id_zip_code;
+    var country = req.body.id_country;
+    var email = req.body.id_email;
+    var phone = req.body.id_phone;
+    var alternative_phone = req.body.id_alternative_phone;
+    var heart = req.body.id_heart;
+    var respiratory = req.body.id_respiratory;
+    var blood = req.body.id_blood;
+    var hemophilia = req.body.id_hemophilia.value;
+    var allergies = req.body.id_allergies;
+    var comments = req.body.id_comments;
 
     hash(password, function (err, salt, hash) {
         if (err) throw err;
         var user = new User({
             username: username,
-            title: String,
-            name: String,
-            surname: String,
-            age: Number,
-            sex: String,
-            idType: String,
-            idNumber: Number,
-            adress: String,
-            locality: String,
-            city: String,
-            zipCode: Number,
-            country: String,
-            email: String,
-            phone: Number,
-            secondPhone: Number,
-            heartPatient: String,
-            respiratoryPatient: String,
-            Hemophilia: String,
-            bloodGroup: String,
-            allergies: String,
+            title: title,
+            name: first_name,
+            surname: last_name,
+            age: age,
+            sex: sex,
+            idType: id_type,
+            idNumber: id_number,
+            address: address,
+            locality: locality,
+            city: city,
+            zipCode: zip_code,
+            country: country,
+            email: email,
+            phone: phone,
+            secondPhone: alternative_phone,
+            heartPatient: heart,
+            respiratoryPatient: respiratory,
+            Hemophilia: hemophilia,
+            bloodGroup: blood,
+            allergies: allergies,
+            otherComments: comments,
             salt: salt,
             hash: hash,
         }).save(function (err, newUser) {
