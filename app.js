@@ -232,7 +232,6 @@ app.get('/profile', requiredAuthentication, function (req, res) {
 
 app.get('/users/:id', function (req, res) {
 	console.log(req.params);
-	//var id = parseInt(req.params.id);
 	console.log('findById: ' + req.params.id);
 	User.findOne({'_id': req.params.id}, function (err, item) {
 		console.log(item);
