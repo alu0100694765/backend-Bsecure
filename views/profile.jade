@@ -1,0 +1,148 @@
+doctype html
+html(lang='fr')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Sheldon COOPER - Physicien surdoué et Geek qualifié
+    //if lt IE 9
+      script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+    // Fichiers CSS
+    link(rel='stylesheet', href='/css/reset.css')
+    //if lt IE 9
+      link(rel='stylesheet', href='css/cv.css', media='screen')
+    link(rel='stylesheet', media='screen and (max-width:480px)', href='/css/mobile.css')
+    link(rel='stylesheet', media='screen and (min-width:481px)', href='/css/cv.css')
+    link(rel='stylesheet', media='print', href='/css/print.css')
+  body
+    // Header
+    header(role='banner')
+      .container_16
+        hgroup
+          h1 Sheldon COOPER
+          h2 Physicien surdoué - Geek qualifié
+        figure
+          img(src='/css/avatar.jpg', alt='Sheldon COOPER')
+    // Contact
+    section.contactform.clearfix
+      .container_16
+        h3 Contactez-moi
+        p
+          | Remplissez le formulaire ci-dessous afin de m'envoyer un message. Je vous répondrais dans les plus bref délai. 
+          br
+          em Tous les champs sont requis.
+        form.grid_16(novalidate='novalidate', method='post', action='#', name='contact')
+          p.grid_10
+            textarea.required(name='message', placeholder='Votre message')
+          p.grid_6
+            input.required(name='nom', placeholder='Nom - Prénom', type='text')
+            input.required(name='email', placeholder='Adresse email', type='email')
+            input.required(name='envoi', value='Envoyer le message', type='submit')
+            span.messageform
+    // Corps
+    section.container_16.clearfix(role='main')
+      .grid_16
+        // A propos
+        .grid_8.apropos
+          h3 A propos
+          p Cette section vous sert de présentation.
+          p
+            | Pellentesque nec nisi at sapien sagittis sagittis. Aliquam eu
+            | condimentum mauris. Proin accumsan enim at risus hendrerit lobortis.
+            | Nunc sollicitudin sodales lectus, et rhoncus mi molestie hendrerit.
+            | Vestibulum velit lorem, rhoncus a congue ultricies, faucibus facilisis
+            | risus. Mauris turpis ante, aliquet ac venenatis at, ornare ut velit.
+            | Duis ut erat neque, eget consectetur tellus.
+        // Compétences
+        .grid_8.competences
+          h3 Compétences
+          ul.barres
+            li(data-skills='80')
+              | Compétences 1
+              span(style='width: 80%;')
+            li(data-skills='60')
+              | Compétences 2
+              span(style='width: 60%;')
+            li(data-skills='75')
+              | Compétences 3
+              span(style='width: 75%;')
+            li(data-skills='40')
+              | Compétences 4
+              span(style='width: 40%;')
+            li(data-skills='95')
+              | Compétences 5
+              span(style='width: 95%;')
+      // Expériences
+      .grid_16.experiences
+        h3 Expériences
+        ul
+          li
+            h4
+              strong Nom du poste
+              |  chez nom de l'employeur
+            span.lieu Lieu
+            span.dates Dates
+            p
+              | Une petite description du poste, décrivez votre rôle et vos
+              | tâches en quelques mots afin que le recruteur en sache plus sur la
+              | nature de votre travail.
+          li
+            h4
+              strong Nom du poste
+              |  chez nom de l'employeur
+            span.lieu Lieu
+            span.dates Dates
+            p
+              | Une petite description du poste, décrivez votre rôle et vos
+              | tâches en quelques mots afin que le recruteur en sache plus sur la
+              | nature de votre travail.
+      // Formations
+      .grid_16.formations
+        h3 Formations
+        ul
+          li
+            h4
+              strong Nom de la formation / diplôme
+              |  à nom de l'école
+            span.lieu Lieu
+            span.dates Période
+            p Clarifiez la formation (les abréviations ne sont pas connues de tout le monde).
+          li
+            h4
+              strong Nom de la formation / diplôme
+              |  à nom de l'école
+            span.lieu Lieu
+            span.dates Période
+            p Clarifiez la formation (les abréviations ne sont pas connues de tout le monde).
+      // Loisirs
+      .grid_8.loisirs
+        h3 Loisirs
+        p
+          strong Sports :
+          |  si vous en pratiquez
+        p
+          strong Association :
+          |  si vous êtes membre d'une association
+        p D'autres loisirs plus vagues, complétez ici.
+      // Contact
+      .grid_8.contact
+        h3 Contact
+        p Si mon profil vous intéresse, n'hésitez pas à me contacter :
+        ul
+          li.lieu Paris, France
+          li.phone 06 00 00 00 00
+          li.mail
+            a(href='mailto:mon.adresse@email.fr') mon.adresse@email.fr
+          li.site
+            a(href='http://www.mon-site.fr/') www.mon-site.fr
+          li.form
+            a.toContactform via le formulaire de contact
+          li.form
+            a.toContactform via le formulaire de contact
+    // Scripts JavaScript
+    script(src='/css/jquery-1.js')
+    script(src='/css/validate.js')
+    //if lt IE 9
+      script(src='scripts/placeholder.js')
+    script(src='/css/plugins.js')
