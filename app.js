@@ -235,7 +235,10 @@ app.get('/users/:id', function (req, res) {
 	console.log('findById: ' + req.params.id);
 	User.findOne({'_id': req.params.id}, function (err, item) {
 		console.log(item);
-		res.jsonp(item);
+		//res.jsonp(item);
+		res.render("profile", {
+			result: res.jsonp(item)	
+		});
 	});
 });
 
