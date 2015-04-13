@@ -23,123 +23,56 @@ html(lang='fr')
           h1 #{result[0].title} #{result[0].name} #{result[0].surname} 
           h2 #{result[0].username}
         figure
-          img(src='/css/avatar.jpg', alt='Sheldon COOPER')
-    // Contact
-    section.contactform.clearfix
-      .container_16
-        h3 Contactez-moi
-        p
-          | Remplissez le formulaire ci-dessous afin de m'envoyer un message. Je vous répondrais dans les plus bref délai. 
-          br
-          em Tous les champs sont requis.
-        form.grid_16(novalidate='novalidate', method='post', action='#', name='contact')
-          p.grid_10
-            textarea.required(name='message', placeholder='Votre message')
-          p.grid_6
-            input.required(name='nom', placeholder='Nom - Prénom', type='text')
-            input.required(name='email', placeholder='Adresse email', type='email')
-            input.required(name='envoi', value='Envoyer le message', type='submit')
-            span.messageform
-    // Corps
+          img(src='Sheldon%20COOPER%20-%20Physicien%20surdou%C3%A9%20et%20Geek%20qualifi%C3%A9_files/avatar.jpg', alt='Sheldon COOPER')
+    // Corpus
     section.container_16.clearfix(role='main')
       .grid_16
-        // A propos
+        // PI
         .grid_8.apropos
-          h3 A propos
-          p Cette section vous sert de présentation.
-          p
-            | Pellentesque nec nisi at sapien sagittis sagittis. Aliquam eu
-            | condimentum mauris. Proin accumsan enim at risus hendrerit lobortis.
-            | Nunc sollicitudin sodales lectus, et rhoncus mi molestie hendrerit.
-            | Vestibulum velit lorem, rhoncus a congue ultricies, faucibus facilisis
-            | risus. Mauris turpis ante, aliquet ac venenatis at, ornare ut velit.
-            | Duis ut erat neque, eget consectetur tellus.
-        // Compétences
-        .grid_8.competences
-          h3 Compétences
-          ul.barres
-            li(data-skills='80')
-              | Compétences 1
-              span(style='width: 80%;')
-            li(data-skills='60')
-              | Compétences 2
-              span(style='width: 60%;')
-            li(data-skills='75')
-              | Compétences 3
-              span(style='width: 75%;')
-            li(data-skills='40')
-              | Compétences 4
-              span(style='width: 40%;')
-            li(data-skills='95')
-              | Compétences 5
-              span(style='width: 95%;')
-      // Expériences
-      .grid_16.experiences
-        h3 Expériences
-        ul
-          li
-            h4
-              strong Nom du poste
-              |  chez nom de l'employeur
-            span.lieu Lieu
-            span.dates Dates
-            p
-              | Une petite description du poste, décrivez votre rôle et vos
-              | tâches en quelques mots afin que le recruteur en sache plus sur la
-              | nature de votre travail.
-          li
-            h4
-              strong Nom du poste
-              |  chez nom de l'employeur
-            span.lieu Lieu
-            span.dates Dates
-            p
-              | Une petite description du poste, décrivez votre rôle et vos
-              | tâches en quelques mots afin que le recruteur en sache plus sur la
-              | nature de votre travail.
-      // Formations
-      .grid_16.formations
-        h3 Formations
-        ul
-          li
-            h4
-              strong Nom de la formation / diplôme
-              |  à nom de l'école
-            span.lieu Lieu
-            span.dates Période
-            p Clarifiez la formation (les abréviations ne sont pas connues de tout le monde).
-          li
-            h4
-              strong Nom de la formation / diplôme
-              |  à nom de l'école
-            span.lieu Lieu
-            span.dates Période
-            p Clarifiez la formation (les abréviations ne sont pas connues de tout le monde).
-      // Loisirs
-      .grid_8.loisirs
-        h3 Loisirs
-        p
-          strong Sports :
-          |  si vous en pratiquez
-        p
-          strong Association :
-          |  si vous êtes membre d'une association
-        p D'autres loisirs plus vagues, complétez ici.
+          h3 Personal Information
+          ul#personalInfo
+            li
+              strong Name: 
+            li
+              strong Age: 
+            li
+              strong Sex: 
+            li
+              strong Id type: 
+            li
+              strong Id number: 
+        // Address
+        .grid_8.address
+          h3 Address
+          p This person lives in
       // Contact
       .grid_8.contact
         h3 Contact
-        p Si mon profil vous intéresse, n'hésitez pas à me contacter :
-        ul
-          li.lieu Paris, France
-          li.phone 06 00 00 00 00
-          li.mail
-            a(href='mailto:mon.adresse@email.fr') mon.adresse@email.fr
-          li.site
-            a(href='http://www.mon-site.fr/') www.mon-site.fr
-          li.form
-            a.toContactform via le formulaire de contact
-          li.form
-            a.toContactform via le formulaire de contact
+        ul#contact
+          li
+            strong E-mail: 
+          li
+            strong Phone number: 
+          li
+            strong Alternative phone number: 
+      // Allergies
+      .grid_8.health
+        h3 Health Information
+        ul#health
+          li
+            strong Heart patient: 
+          li
+            strong Respiratory problems: 
+          li
+            strong Hemophilia: 
+          li
+            strong Blood group: 
+          li
+            strong Allergies: 
+      // Other comments
+      .grid_16.other
+        h3 Other Comments
+        p Other
     // Scripts JavaScript
     script(src='/css/jquery-1.js')
     script(src='/css/validate.js')
