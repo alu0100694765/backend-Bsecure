@@ -230,5 +230,13 @@ app.get('/profile', requiredAuthentication, function (req, res) {
     res.send('Profile page of '+ req.session.user.username +'<br>'+' click to <a href="/logout">logout</a>');
 });
 
+app.get('/users/:id', function (req, res) {
+	console.log(req.params);
+	console.log('findById: ' + req.params.id);
+	User.findOne({'_id': req.params.id}, function (err, item) {
+		console.log(item);
+		res.jsonp(item);
+	});
+});
 
 http.createServer(app).listen(3000);
