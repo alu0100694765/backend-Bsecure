@@ -235,7 +235,7 @@ app.get('/users/:id', function (req, res) {
 	var id = parseInt(req.params.id);
 	console.log('findById: ' + id);
 	User.collection('users', function (err, collection) {
-		collection.findOne({'id': id}, function (err, item) {
+		collection.findOne({'_id': id}, function (err, item) {
 			console.log(item);
 			res.jsonp(item);
 		});
