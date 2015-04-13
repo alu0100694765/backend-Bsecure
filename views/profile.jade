@@ -1,5 +1,5 @@
 doctype html
-html(lang='fr')
+html(lang='en')
   head
     meta(http-equiv='content-type', content='text/html; charset=UTF-8')
     meta(charset='utf-8')
@@ -11,7 +11,7 @@ html(lang='fr')
     // Fichiers CSS
     link(rel='stylesheet', href='/css/reset.css')
     //if lt IE 9
-      link(rel='stylesheet', href='css/cv.css', media='screen')
+      link(rel='stylesheet', href='/css/cv.css', media='screen')
     link(rel='stylesheet', media='screen and (max-width:480px)', href='/css/mobile.css')
     link(rel='stylesheet', media='screen and (min-width:481px)', href='/css/cv.css')
     link(rel='stylesheet', media='print', href='/css/print.css')
@@ -23,56 +23,69 @@ html(lang='fr')
           h1 #{result[0].title} #{result[0].name} #{result[0].surname} 
           h2 #{result[0].username}
         figure
-          img(src='Sheldon%20COOPER%20-%20Physicien%20surdou%C3%A9%20et%20Geek%20qualifi%C3%A9_files/avatar.jpg', alt='Sheldon COOPER')
+          img(src='/css/avatar.jpg', alt='Sheldon COOPER')
     // Corpus
     section.container_16.clearfix(role='main')
       .grid_16
         // PI
-        .grid_8.apropos
+        .grid_8.pi
           h3 Personal Information
           ul#personalInfo
             li
               strong Name: 
+              #{result[0].title} #{result[0].name} #{result[0].surname}
             li
               strong Age: 
+              #{result[0].age}
             li
               strong Sex: 
+              #{result[0].name} #{result[0].sex}  
             li
               strong Id type: 
+              #{result[0].idType} #{result[0].idType} 
             li
               strong Id number: 
+              #{result[0].idNumber}
         // Address
         .grid_8.address
           h3 Address
-          p This person lives in
+          p #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
       // Contact
       .grid_8.contact
         h3 Contact
         ul#contact
           li
             strong E-mail: 
+            #{result[0].email} #{result[0].email}
           li
-            strong Phone number: 
+            strong Phone number:
+            #{result[0].phone}
           li
             strong Alternative phone number: 
+            #{result[0].secondPhone}
       // Allergies
       .grid_8.health
         h3 Health Information
         ul#health
           li
             strong Heart patient: 
+            #{result[0].bloodGroup} #{result[0].heartPatient}
           li
             strong Respiratory problems: 
+            #{result[0].bloodGroup} #{result[0].respiratoryPatient}
           li
             strong Hemophilia: 
+            #{result[0].bloodGroup} #{result[0].Hemophilia}
           li
             strong Blood group: 
+            #{result[0].bloodGroup} #{result[0].bloodGroup} 
           li
             strong Allergies: 
+            #{result[0].allergies} #{result[0].allergies} 
       // Other comments
       .grid_16.other
         h3 Other Comments
-        p Other
+        p #{result[0].otherComments}
     // Scripts JavaScript
     script(src='/css/jquery-1.js')
     script(src='/css/validate.js')

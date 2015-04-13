@@ -234,11 +234,12 @@ app.get('/users/:id', function (req, res) {
 	console.log(req.params);
 	console.log('findById: ' + req.params.id);
 	User.find({'_id': req.params.id}, function (err, item) {
-		console.log(item);
+		//console.log(item);
 		//res.jsonp(item);
 		res.render('profile', {
 			result: item	
 		});
+        console.log(item);
 	});
 });
 
