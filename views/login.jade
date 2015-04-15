@@ -29,7 +29,7 @@ html
       .loginpanelinner
         .logo.animate0.bounceIn
           img(src='images/indexlogo.png', alt='')
-        form#login(action='dashboard.html', method='post')
+        form#login(action='/login', method='post')
           .inputwrapper.login-alert
             .alert.alert-error Invalid username or password
           .inputwrapper.animate1.bounceIn
@@ -42,8 +42,8 @@ html
             label
               input.remember(type='checkbox', name='signin')
               |  Keep me sign in
-            label
-              | Not a member? 
+            label(style='padding-left: 1cm;')
+              |  Not a member? 
               a(style='color:white', href='signup') Sign Up
       // loginpanelinner
     // loginpanel
