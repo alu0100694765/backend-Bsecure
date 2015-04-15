@@ -117,7 +117,12 @@ Routes
 app.get("/", function (req, res) {
 
     if (req.session.user) {
-        res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
+       // res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
+       console.log(req.session.user);
+       var userData = req.session.user;
+       res.render('dashboard', {
+            result: userData
+       });
     } else {
         //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
         res.render("login");
