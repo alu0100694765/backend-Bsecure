@@ -3,7 +3,7 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Shamcey - Metro Style Admin Template
+    title Dashboard of #{result.username}
     link(rel='stylesheet', href='css/style.default.css', type='text/css')
     link(rel='stylesheet', href='css/responsive-tables.css')
     script(type='text/javascript', src='js/jquery-1.9.1.min.js')
@@ -23,8 +23,8 @@ html
     .mainwrapper
       .header
         .logo
-          a(href='dashboard.html')
-            img(src='images/logo.png', alt='')
+          a(href='/')
+            img(src='images/indexlogo.png', alt='')
         .headerinner
           ul.headmenu
             li.odd
@@ -157,7 +157,7 @@ html
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
             li.active
-              a(href='dashboard.html')
+              a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
             li
@@ -166,11 +166,11 @@ html
                 |  Buttons & Icons
             li.dropdown
               a(href='')
-                span.iconfa-pencil
-                |  Forms
+                span.iconfa-user
+                |  Profile
               ul
                 li
-                  a(href='forms.html') Form Styles
+                  a(href='/users/#{result._id}') Private Profile
                 li
                   a(href='wizards.html') Wizard Form
                 li
@@ -245,7 +245,7 @@ html
       .rightpanel
         ul.breadcrumbs
           li
-            a(href='dashboard.html')
+            a(href='/')
               i.iconfa-home
             span.separator
           li Dashboard
