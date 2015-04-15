@@ -38,7 +38,8 @@ var UserSchema = new mongoose.Schema({
     allergies: String,
     otherComments: String,
     salt: String,
-    hash: String
+    hash: String,
+    img: { data: Buffer, contentType: String }
 });
 
 var User = mongoose.model('users', UserSchema);
