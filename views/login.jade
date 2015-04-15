@@ -1,18 +1,51 @@
 doctype html
 html
   head
-    meta(charset='UTF-8')
-    title CodePen - Login Form
-    link(rel='stylesheet', href='/css/login.css')
-  body
-    //span#toggle-login.button(href='#') Log in
-    #login
-      #triangle
-      h1 Log in
-      form(id="login", method="POST", action="/login")
-        input(type='text', placeholder='user', name='username')
-        input#password(type='password', placeholder='Password', name='password')
-        input(type='submit', value='Log In')
-        
-    script(src='http://codepen.io/assets/libs/fullpage/jquery.js')
-    script(src='js/index.js')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Bsecure
+    link(rel='stylesheet', href='css/style.default.css', type='text/css')
+    link(rel='stylesheet', href='css/style.shinyblue.css', type='text/css')
+    script(type='text/javascript', src='js/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
+    script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
+    script(type='text/javascript', src='js/modernizr.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/jquery.cookie.js')
+    script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript').
+      jQuery(document).ready(function(){
+      jQuery('#login').submit(function(){
+      var u = jQuery('#username').val();
+      var p = jQuery('#password').val();
+      if(u == '' && p == '') {
+      jQuery('.login-alert').fadeIn();
+      return false;
+      }
+      });
+      });
+  body.loginpage
+    .loginpanel
+      .loginpanelinner
+        .logo.animate0.bounceIn
+          img(src='images/indexlogo.png', alt='')
+        form#login(action='dashboard.html', method='post')
+          .inputwrapper.login-alert
+            .alert.alert-error Invalid username or password
+          .inputwrapper.animate1.bounceIn
+            input#username(type='text', name='username', placeholder='Enter any username')
+          .inputwrapper.animate2.bounceIn
+            input#password(type='password', name='password', placeholder='Enter any password')
+          .inputwrapper.animate3.bounceIn
+            button(name='submit') Sign In
+          .inputwrapper.animate4.bounceIn
+            label
+              input.remember(type='checkbox', name='signin')
+              |  Keep me sign in
+            label
+              | Not a member? 
+              a(style='color:white', href='signup') Sign Up
+      // loginpanelinner
+    // loginpanel
+    .loginfooter
+      p 2015. Sawan J. Kapai Harpalani.
