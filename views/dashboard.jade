@@ -1,0 +1,653 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Shamcey - Metro Style Admin Template
+    link(rel='stylesheet', href='css/style.default.css', type='text/css')
+    link(rel='stylesheet', href='css/responsive-tables.css')
+    script(type='text/javascript', src='js/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
+    script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
+    script(type='text/javascript', src='js/modernizr.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/jquery.cookie.js')
+    script(type='text/javascript', src='js/jquery.uniform.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.resize.min.js')
+    script(type='text/javascript', src='js/responsive-tables.js')
+    script(type='text/javascript', src='js/custom.js')
+    //if lte IE 8
+      script(language='javascript', type='text/javascript', src='js/excanvas.min.js')
+  body
+    .mainwrapper
+      .header
+        .logo
+          a(href='dashboard.html')
+            img(src='images/logo.png', alt='')
+        .headerinner
+          ul.headmenu
+            li.odd
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.count 4
+                span.head-icon.head-message
+                span.headmenu-label Messages
+              ul.dropdown-menu
+                li.nav-header Messages
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Jack
+                    small.muted  - 19 hours ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Daniel
+                    small.muted  - 2 days ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Jane
+                    small.muted  - 3 days ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Tanya
+                    small.muted  - 1 week ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Lee
+                    small.muted  - 1 week ago
+                li.viewmore
+                  a(href='messages.html') View More Messages
+            li
+              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
+                span.count 10
+                span.head-icon.head-users
+                span.headmenu-label New Users
+              ul.dropdown-menu.newusers
+                li.nav-header New Users
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb1.png', alt='')
+                    strong Draniem Daamul
+                    small April 20, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb2.png', alt='')
+                    strong Shamcey Sindilmaca
+                    small April 19, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb3.png', alt='')
+                    strong Nusja Paul Nawancali
+                    small April 19, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb4.png', alt='')
+                    strong Rose Cerona
+                    small April 18, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb5.png', alt='')
+                    strong John Doe
+                    small April 16, 2013
+            li.odd
+              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
+                span.count 1
+                span.head-icon.head-bar
+                span.headmenu-label Statistics
+              ul.dropdown-menu
+                li.nav-header Statistics
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Reports from 
+                    strong Products
+                    small.muted  - 19 hours ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Statistics from 
+                    strong Users
+                    small.muted  - 2 days ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Statistics from 
+                    strong Comments
+                    small.muted  - 3 days ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  Most Popular in 
+                    strong Products
+                    small.muted  - 1 week ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  Most Viewed in 
+                    strong Blog
+                    small.muted  - 1 week ago
+                li.viewmore
+                  a(href='charts.html') View More Statistics
+            li.right
+              .userloggedinfo
+                img(src='images/photos/thumb1.png', alt='')
+                .userinfo
+                  h5
+                    | Juan Dela Cruz 
+                    small - juan@themepixels.com
+                  ul
+                    li
+                      a(href='editprofile.html') Edit Profile
+                    li
+                      a(href='') Account Settings
+                    li
+                      a(href='index.html') Sign Out
+          // headmenu
+      .leftpanel
+        .leftmenu
+          ul.nav.nav-tabs.nav-stacked
+            li.nav-header Navigation
+            li.active
+              a(href='dashboard.html')
+                span.iconfa-laptop
+                |  Dashboard
+            li
+              a(href='buttons.html')
+                span.iconfa-hand-up
+                |  Buttons & Icons
+            li.dropdown
+              a(href='')
+                span.iconfa-pencil
+                |  Forms
+              ul
+                li
+                  a(href='forms.html') Form Styles
+                li
+                  a(href='wizards.html') Wizard Form
+                li
+                  a(href='wysiwyg.html') WYSIWYG
+            li.dropdown
+              a(href='')
+                span.iconfa-briefcase
+                |  UI Elements & Widgets
+              ul
+                li
+                  a(href='elements.html') Theme Components
+                li
+                  a(href='bootstrap.html') Bootstrap Components
+                li
+                  a(href='boxes.html') Headers & Boxes
+            li.dropdown
+              a(href='')
+                span.iconfa-th-list
+                |  Tables
+              ul
+                li
+                  a(href='table-static.html') Static Table
+                li.dropdown
+                  a(href='table-dynamic.html') Dynamic Table
+            li
+              a(href='media.html')
+                span.iconfa-picture
+                |  Media Manager
+            li
+              a(href='typography.html')
+                span.iconfa-font
+                |  Typography
+            li
+              a(href='charts.html')
+                span.iconfa-signal
+                |  Graph & Charts
+            li
+              a(href='messages.html')
+                span.iconfa-envelope
+                |  Messages
+            li
+              a(href='calendar.html')
+                span.iconfa-calendar
+                |  Calendar
+            li.dropdown
+              a(href='')
+                span.iconfa-book
+                |  Other Pages
+              ul
+                li
+                  a(href='404.html') 404 Error Page
+                li
+                  a(href='editprofile.html') Edit Profile
+                li
+                  a(href='invoice.html') Invoice Page
+                li
+                  a(href='discussion.html') Discussion Page
+            li.dropdown
+              a(href='')
+                span.iconfa-th-list
+                |  Three Level Menu Sample
+              ul
+                li.dropdown
+                  a(href='') Second Level Menu
+                  ul
+                    li
+                      a(href='') Third Level Menu
+                    li
+                      a(href='') Another Third Level Menu
+        // leftmenu
+      // leftpanel
+      .rightpanel
+        ul.breadcrumbs
+          li
+            a(href='dashboard.html')
+              i.iconfa-home
+            span.separator
+          li Dashboard
+          li.right
+            a.dropdown-toggle(href='', data-toggle='dropdown')
+              i.icon-tint
+              |  Color Skins
+            ul.dropdown-menu.pull-right.skin-color
+              li
+                a(href='default') Default
+              li
+                a(href='navyblue') Navy Blue
+              li
+                a(href='palegreen') Pale Green
+              li
+                a(href='red') Red
+              li
+                a(href='green') Green
+              li
+                a(href='brown') Brown
+        .pageheader
+          form.searchbar(action='results.html', method='post')
+            input(type='text', name='keyword', placeholder='To search type and hit enter...')
+          .pageicon
+            span.iconfa-laptop
+          .pagetitle
+            h5 All Features Summary
+            h1 Dashboard
+        // pageheader
+        .maincontent
+          .maincontentinner
+            .row-fluid
+              #dashboard-left.span8
+                h5.subtitle Recently Viewed Pages
+                ul.shortcuts
+                  li.events
+                    a(href='')
+                      span.shortcuts-icon.iconsi-event
+                      span.shortcuts-label Events
+                  li.products
+                    a(href='')
+                      span.shortcuts-icon.iconsi-cart
+                      span.shortcuts-label Products
+                  li.archive
+                    a(href='')
+                      span.shortcuts-icon.iconsi-archive
+                      span.shortcuts-label Archives
+                  li.help
+                    a(href='')
+                      span.shortcuts-icon.iconsi-help
+                      span.shortcuts-label Help
+                  li.last.images
+                    a(href='')
+                      span.shortcuts-icon.iconsi-images
+                      span.shortcuts-label Images
+                br
+                h5.subtitle Daily Statistics
+                br
+                #chartplace(style='height:300px;')
+                .divider30
+                table.table.table-bordered.responsive
+                  thead
+                    tr
+                      th.head1 Rendering engine
+                      th.head0 Browser
+                      th.head1 Platform(s)
+                      th.head0 Engine version
+                      th.head1 CSS grade
+                  tbody
+                    tr
+                      td Trident
+                      td Internet  Explorer 5.5
+                      td Win 95+
+                      td.center 5.5
+                      td.center A
+                    tr
+                      td Trident
+                      td Internet Explorer 6
+                      td Win 98+
+                      td.center 6
+                      td.center A
+                    tr
+                      td Trident
+                      td Internet Explorer 7
+                      td Win XP SP2+
+                      td.center 7
+                      td.center A
+                br
+                h4.widgettitle
+                  span.icon-comment.icon-white
+                  |  Recent Comments
+                .widgetcontent.nopadding
+                  ul.commentlist
+                    li
+                      img.pull-left(src='images/photos/thumb2.png', alt='')
+                      .comment-info
+                        h4
+                          a(href='') Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        h5
+                          | in 
+                          a(href='') Sit Voluptatem
+                        p
+                          | Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        p
+                          a.btn.btn-success.btn-small(href='')
+                            span.icon-thumbs-up.icon-white
+                            |  Approve
+                          a.btn.btn-small(href='')
+                            span.icon-thumbs-down
+                            |  Reject
+                    li
+                      img.pull-left(src='images/photos/thumb1.png', alt='')
+                      .comment-info
+                        h4
+                          a(href='') But I must explain to you how all this mistaken
+                        h5
+                          | in 
+                          a(href='') At vero eos et accusamus et iusto odio dignissimos
+                        p
+                          | Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                        p
+                          a.btn.btn-success.btn-small(href='')
+                            span.icon-thumbs-up.icon-white
+                            |  Approve
+                          a.btn.btn-small(href='')
+                            span.icon-thumbs-down
+                            |  Reject
+                    li
+                      img.pull-left(src='images/photos/thumb10.png', alt='')
+                      .comment-info
+                        h4
+                          a(href='') On the other hand, we denounce with righteous indignation
+                        h5
+                          | in 
+                          a(href='') These cases are perfectly simple and easy to distinguish
+                        p
+                          | Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.
+                        p
+                          a.btn.btn-success.btn-small(href='')
+                            span.icon-thumbs-up.icon-white
+                            |  Approve
+                          a.btn.btn-small(href='')
+                            span.icon-thumbs-down
+                            |  Reject
+                    li
+                      a(href='') View More Comments
+                br
+              // span8
+              #dashboard-right.span4
+                h5.subtitle Announcements
+                .divider15
+                .alert.alert-block
+                  button.close(data-dismiss='alert', type='button') ×
+                  h4 Warning!
+                  p(style='margin: 8px 0')
+                    | Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna.
+                // alert
+                br
+                h5.subtitle Summaries
+                .divider15
+                .widgetbox
+                  .headtitle
+                    .btn-group
+                      button.btn.dropdown-toggle(data-toggle='dropdown')
+                        | Action 
+                        span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider
+                        li
+                          a(href='#') Separated link
+                    h4.widgettitle Widget Box
+                  .widgetcontent
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  // widgetcontent
+                // widgetbox
+                h4.widgettitle Event Calendar
+                .widgetcontent.nopadding
+                  #datepicker
+                .tabbedwidget.tab-primary
+                  ul
+                    li
+                      a(href='#tabs-1')
+                        span.iconfa-user
+                    li
+                      a(href='#tabs-2')
+                        span.iconfa-star
+                    li
+                      a(href='#tabs-3')
+                        span.iconfa-comments
+                  #tabs-1.nopadding
+                    h5.tabtitle Last Logged In Users
+                    ul.userlist
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb1.png', alt='')
+                          .uinfo
+                            h5 Draniem Daamul
+                            span.pos Software Engineer
+                            span Last Logged In: 04/20/2013 8:40PM
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb2.png', alt='')
+                          .uinfo
+                            h5 Therineka Chonpe
+                            span.pos Regional Manager
+                            span Last Logged In: 04/20/2013 3:30PM
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb3.png', alt='')
+                          .uinfo
+                            h5 Zaham Sindilmaca
+                            span.pos Chief Technical Officer
+                            span Last Logged In: 04/19/2013 1:30AM
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb4.png', alt='')
+                          .uinfo
+                            h5 Annie Cerona
+                            span.pos Engineering Manager
+                            span Last Logged In: 04/19/2013 11:30AM
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb5.png', alt='')
+                          .uinfo
+                            h5 Delher Carasbong
+                            span.pos Software Engineer
+                            span Last Logged In: 04/19/2013 11:00AM
+                  #tabs-2.nopadding
+                    h5.tabtitle Favorites
+                    ul.userlist.userlist-favorites
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb3.png', alt='')
+                          .uinfo
+                            h5 Zaham Sindilmaca
+                            p.link
+                              a(href='')
+                                i.iconfa-envelope
+                                |  Message
+                              a(href='')
+                                i.iconfa-phone
+                                |  Call
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb4.png', alt='')
+                          .uinfo
+                            h5 Annie Cerona
+                            p.link
+                              a(href='')
+                                i.iconfa-envelope
+                                |  Message
+                              a(href='')
+                                i.iconfa-phone
+                                |  Call
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb5.png', alt='')
+                          .uinfo
+                            h5 Delher Carasbong
+                            p.link
+                              a(href='')
+                                i.iconfa-envelope
+                                |  Message
+                              a(href='')
+                                i.iconfa-phone
+                                |  Call
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb1.png', alt='')
+                          .uinfo
+                            h5 Draniem Daamul
+                            p.link
+                              a(href='')
+                                i.iconfa-envelope
+                                |  Message
+                              a(href='')
+                                i.iconfa-phone
+                                |  Call
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb2.png', alt='')
+                          .uinfo
+                            h5 Therineka Chonpe
+                            p.link
+                              a(href='')
+                                i.iconfa-envelope
+                                |  Message
+                              a(href='')
+                                i.iconfa-phone
+                                |  Call
+                  #tabs-3.nopadding
+                    h5.tabtitle Top Comments
+                    ul.userlist
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb4.png', alt='')
+                          .uinfo
+                            h5 Annie Cerona
+                            p.par
+                              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb5.png', alt='')
+                          .uinfo
+                            h5 Delher Carasbong
+                            p.par
+                              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb1.png', alt='')
+                          .uinfo
+                            h5 Draniem Daamul
+                            p.par
+                              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb2.png', alt='')
+                          .uinfo
+                            h5 Therineka Chonpe
+                            p.par
+                              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                      li
+                        div
+                          img.pull-left(src='images/photos/thumb3.png', alt='')
+                          .uinfo
+                            h5 Zaham Sindilmaca
+                            p.par
+                              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididun
+                // tabbedwidget
+                br
+              // span4
+            // row-fluid
+            .footer
+              .footer-left
+                span © 2013. Shamcey Admin Template. All Rights Reserved.
+              .footer-right
+                span
+                  | Designed by: 
+                  a(href='http://themepixels.com/') ThemePixels
+            // footer
+          // maincontentinner
+        // maincontent
+      // rightpanel
+    // mainwrapper
+    script(type='text/javascript').
+      jQuery(document).ready(function() {
+      // simple chart
+      var flash = [[0, 11], [1, 9], [2,12], [3, 8], [4, 7], [5, 3], [6, 1]];
+      var html5 = [[0, 5], [1, 4], [2,4], [3, 1], [4, 9], [5, 10], [6, 13]];
+      var css3 = [[0, 6], [1, 1], [2,9], [3, 12], [4, 10], [5, 12], [6, 11]];
+      function showTooltip(x, y, contents) {
+      jQuery('<div id="tooltip" class="tooltipflot">' + contents + '</div>').css( {
+      position: 'absolute',
+      display: 'none',
+      top: y + 5,
+      left: x + 5
+      }).appendTo("body").fadeIn(200);
+      }
+      var plot = jQuery.plot(jQuery("#chartplace"),
+      [ { data: flash, label: "Flash(x)", color: "#6fad04"},
+      { data: html5, label: "HTML5(x)", color: "#06c"},
+      { data: css3, label: "CSS3", color: "#666"} ], {
+      series: {
+      lines: { show: true, fill: true, fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.15 } ] } },
+      points: { show: true }
+      },
+      legend: { position: 'nw'},
+      grid: { hoverable: true, clickable: true, borderColor: '#666', borderWidth: 2, labelMargin: 10 },
+      yaxis: { min: 0, max: 15 }
+      });
+      var previousPoint = null;
+      jQuery("#chartplace").bind("plothover", function (event, pos, item) {
+      jQuery("#x").text(pos.x.toFixed(2));
+      jQuery("#y").text(pos.y.toFixed(2));
+      if(item) {
+      if (previousPoint != item.dataIndex) {
+      previousPoint = item.dataIndex;
+      jQuery("#tooltip").remove();
+      var x = item.datapoint[0].toFixed(2),
+      y = item.datapoint[1].toFixed(2);
+      showTooltip(item.pageX, item.pageY,
+      item.series.label + " of " + x + " = " + y);
+      }
+      } else {
+      jQuery("#tooltip").remove();
+      previousPoint = null;
+      }
+      });
+      jQuery("#chartplace").bind("plotclick", function (event, pos, item) {
+      if (item) {
+      jQuery("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+      plot.highlight(item.series, item.datapoint);
+      }
+      });
+      //datepicker
+      jQuery('#datepicker').datepicker();
+      // tabbed widget
+      jQuery('.tabbedwidget').tabs();
+      });
