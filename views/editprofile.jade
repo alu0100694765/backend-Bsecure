@@ -1,0 +1,224 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Shamcey - Metro Style Admin Template
+    link(rel='stylesheet', href='css/style.default.css', type='text/css')
+    script(type='text/javascript', src='js/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
+    script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/jquery.uniform.min.js')
+    script(type='text/javascript', src='js/jquery.cookie.js')
+    script(type='text/javascript', src='js/modernizr.min.js')
+    script(type='text/javascript', src='js/jquery.smartWizard.min.js')
+    script(type='text/javascript', src='js/custom.js')
+  body
+    .mainwrapper
+      .header
+        .logo
+          a(href='dashboard.html')
+            img(src='images/logo.png', alt='')
+        .headerinner
+          ul.headmenu
+            li.right
+              .userloggedinfo
+                img(src='images/photos/thumb1.png', alt='')
+                .userinfo
+                  h5
+                    | Juan Dela Cruz 
+                    small - juan@themepixels.com
+                  ul
+                    li
+                      a(href='editprofile.html') Edit Profile
+                    li
+                      a(href='') Account Settings
+                    li
+                      a(href='index.html') Sign Out
+          // headmenu
+      .leftpanel
+        .leftmenu
+          ul.nav.nav-tabs.nav-stacked
+            li.nav-header Navigation
+            li
+              a(href='dashboard.html')
+                span.iconfa-laptop
+                |  Dashboard
+            li
+              a(href='buttons.html')
+                span.iconfa-hand-up
+                |  Buttons & Icons
+            li.dropdown.active
+              a(href='')
+                span.iconfa-pencil
+                |  Forms
+              ul(style='display: block')
+                li
+                  a(href='forms.html') Private Profile
+                li.active
+                  a(href='wizards.html') Edit Profile
+                li
+                  a(href='wysiwyg.html') WYSIWYG
+            li
+              a(href='messages.html')
+                span.iconfa-envelope
+                |  Messages
+            li
+              a(href='calendar.html')
+                span.iconfa-calendar
+                |  Calendar
+        // leftmenu
+      // leftpanel
+      .rightpanel
+        ul.breadcrumbs
+          li
+            a(href='dashboard.html')
+              i.iconfa-home
+            span.separator
+          li
+            a(href='forms.html') Forms
+            span.separator
+          li Wizard Forms
+          li.right
+            a.dropdown-toggle(href='', data-toggle='dropdown')
+              i.icon-tint
+              |  Color Skins
+            ul.dropdown-menu.pull-right.skin-color
+              li
+                a(href='default') Default
+              li
+                a(href='navyblue') Navy Blue
+              li
+                a(href='palegreen') Pale Green
+              li
+                a(href='red') Red
+              li
+                a(href='green') Green
+              li
+                a(href='brown') Brown
+        .pageheader
+          form.searchbar(action='results.html', method='post')
+            input(type='text', name='keyword', placeholder='To search type and hit enter...')
+          .pageicon
+            span.iconfa-pencil
+          .pagetitle
+            h5 Forms
+            h1 Wizard Forms
+        // pageheader
+        .maincontent
+          .maincontentinner
+            .row-fluid
+              .span4.profile-left
+                .widgetbox.profile-photo
+                  .headtitle
+                    .btn-group
+                      button.btn.dropdown-toggle(data-toggle='dropdown')
+                        | Action 
+                        span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') Change Photo
+                        li
+                          a(href='#') Remove Photo
+                    h4.widgettitle Profile Photo
+                  .widgetcontent
+                    .profilethumb
+                      img.img-polaroid(src='images/profilethumb.png', alt='')
+                    // profilethumb
+                .widgetbox.tags
+                  h4.widgettitle Tags
+                  .widgetcontent
+                    ul.taglist
+                      li
+                        a(href='')
+                          | HTML5 
+                          span.close ×
+                      li
+                        a(href='')
+                          | CSS 
+                          span.close ×
+                      li
+                        a(href='')
+                          | PHP 
+                          span.close ×
+                      li
+                        a(href='')
+                          | jQuery 
+                          span.close ×
+                      li
+                        a(href='')
+                          | Java 
+                          span.close ×
+                      li
+                        a(href='')
+                          | GWT 
+                          span.close ×
+                      li
+                        a(href='')
+                          | CodeNgniter 
+                          span.close ×
+                      li
+                        a(href='')
+                          | Bootstrap 
+                          span.close ×
+                    a(href='', style='display:block;margin-top:10px') + Add Tag
+              // span4
+              .span8
+                form.editprofileform(action='editprofile.html', method='post')
+                  .widgetbox.login-information
+                    h4.widgettitle Login Information
+                    .widgetcontent
+                      p
+                        label Username:
+                        input.input-xlarge(type='text', name='username', value='themepixels')
+                      p
+                        label Email:
+                        input.input-xlarge(type='text', name='email', value='you@yourdomain.com')
+                      p
+                        label(style='padding:0') Password
+                        a(href='') Change Password?
+                  .widgetbox.personal-information
+                    h4.widgettitle Personal Information
+                    .widgetcontent
+                      p
+                        label Firstname:
+                        input.input-xlarge(type='text', name='firstname', value='Theme')
+                      p
+                        label Lastname:
+                        input.input-xlarge(type='text', name='lastname', value='Pixels')
+                      p
+                        label Location:
+                        input.input-xlarge(type='text', name='location', value='Cebu, Philippines')
+                      p
+                        label Your Website:
+                        input.input-xlarge(type='text', name='website', value='http://themepixels.com/')
+                      p
+                        label About You:
+                        textarea.span8(name='about')
+                  .widgetbox.profile-notifications
+                    h4.widgettitle Notifications
+                    .widgetcontent
+                      p
+                        input(type='checkbox')
+                        |  Email me when someone mentions me... 
+                        br
+                        input(type='checkbox')
+                        |  Email me when someone follows me...
+                  p
+                    button.btn.btn-primary(type='submit') Update Profile
+                    a(href='') Deactivate your account
+              // span8
+            // row-fluid
+            .footer
+              .footer-left
+                span © 2013. Shamcey Admin Template. All Rights Reserved.
+              .footer-right
+                span
+                  | Designed by: 
+                  a(href='http://themepixels.com/') ThemePixels
+            // footer
+          // maincontentinner
+        // maincontent
+      // rightpanel
+    // mainwrapper
