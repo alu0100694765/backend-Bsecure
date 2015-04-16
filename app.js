@@ -4,8 +4,8 @@ Module Dependencies
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    mongoose = require('mongoose'),
     fs = require('fs'),
+    mongoose = require('mongoose'),
     hash = require('./pass').hash;
 
 var app = express();
@@ -38,9 +38,9 @@ var UserSchema = new mongoose.Schema({
     bloodGroup: String,
     allergies: String,
     otherComments: String,
+    img: String,
     salt: String,
-    hash: String,
-    img: { data: Buffer, contentType: String }
+    hash: String
 });
 
 var User = mongoose.model('users', UserSchema);
@@ -120,10 +120,11 @@ app.get("/", function (req, res) {
 
     if (req.session.user) {
        // res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
-       console.log(req.session.user);
-       var userData = req.session.user;
-       res.render('dashboard', {
-            result: userData
+      // console.log(req.session.user);
+      
+      var userData = req.session.user;
+      res.render('dashboard', {
+            result: userData,
        });
     } else {
         //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
@@ -163,7 +164,11 @@ app.post("/signup", userExist, function (req, res) {
     var hemophilia = req.body.id_hemophilia;
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
-    var imgPath = req.body.id_avatar; 
+    
+    var tmp_path = req.files.image.path;
+   
+    var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
+    var base64_image = tmp_buffer.toString('base64');
 
     hash(password, function (err, salt, hash) {
         if (err) throw err;
@@ -191,8 +196,8 @@ app.post("/signup", userExist, function (req, res) {
             allergies: allergies,
             otherComments: comments,
             salt: salt,
+            img: base64_image,
             hash: hash,
-            img: {data: imgPath, contentType: 'image/jpg'}
         }).save(function (err, newUser) {
             if (err) throw err;
             authenticate(newUser.username, password, function(err, user){
@@ -239,17 +244,19 @@ app.get('/profile', requiredAuthentication, function (req, res) {
     res.send('Profile page of '+ req.session.user.username +'<br>'+' click to <a href="/logout">logout</a>');
 });
 
+
+
 app.get('/users/:id', function (req, res) {
-	console.log(req.params);
-	console.log('findById: ' + req.params.id);
-	User.find({'_id': req.params.id}, function (err, item) {
-		//console.log(item);
-		//res.jsonp(item);
-		res.render('profile', {
-			result: item	
-		});
-        console.log(item);
-	});
+    //console.log(req.params);
+    //console.log('findById: ' + req.params.id);
+    User.find({'_id': req.params.id}, function (err, item) {
+        //console.log(item);
+
+        res.render('profile', {
+            result: item,
+        });
+       // console.log(item);
+    });
 });
 
 http.createServer(app).listen(3000);

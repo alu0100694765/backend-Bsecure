@@ -24,7 +24,7 @@ html
       jQuery('select, input:checkbox').uniform();
       });
   body.loginpage
-    form#myform.stdform(method='POST', action='/signup')
+    form#myform.stdform(method='POST', action='/signup', enctype='multipart/form-data')
       #wizard3.wizard.tabbedwizard
         ul.tabbedmenu
           li
@@ -115,7 +115,8 @@ html
           p
             label Profile picture
             span.field
-              input#id_avatar.input-medium(type='file', name='id_avatar', accept='image/*', required)
+              input#i_file(type='file', name='image', accept='image/x-png, image/gif, image/jpeg')
+          p
         // #wiz13tep2
         #wiz3step3.formwiz
           h4 Step 3: Address
