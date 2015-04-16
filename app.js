@@ -163,6 +163,8 @@ app.post("/signup", userExist, function (req, res) {
     var hemophilia = req.body.id_hemophilia;
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
+    var imagePath = req.body.imagePath;
+    console.log(imagePath);
 
     hash(password, function (err, salt, hash) {
         if (err) throw err;
