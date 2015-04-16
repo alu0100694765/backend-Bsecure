@@ -4,6 +4,7 @@ Module Dependencies
 var express = require('express'),
     http = require('http'),
     path = require('path'),
+    fs = require('fs'),
     mongoose = require('mongoose'),
     hash = require('./pass').hash;
 
@@ -37,6 +38,7 @@ var UserSchema = new mongoose.Schema({
     bloodGroup: String,
     allergies: String,
     otherComments: String,
+    img: { data: Buffer, contentType: String },
     salt: String,
     hash: String
 });
