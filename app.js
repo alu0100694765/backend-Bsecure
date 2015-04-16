@@ -132,6 +132,16 @@ app.get("/", function (req, res) {
     }
 });
 
+app.get("/editprofile", function (req, res) {
+    if (req.session.user) {
+        res.render('editprofile', {
+            result: req.session.user
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
 app.get("/signup", function (req, res) {
     if (req.session.user) {
         res.redirect("/");

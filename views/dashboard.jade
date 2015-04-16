@@ -27,116 +27,6 @@ html
             img(src='images/indexlogo.png', alt='')
         .headerinner
           ul.headmenu
-            li.odd
-              a.dropdown-toggle(data-toggle='dropdown', href='#')
-                span.count 4
-                span.head-icon.head-message
-                span.headmenu-label Messages
-              ul.dropdown-menu
-                li.nav-header Messages
-                li
-                  a(href='')
-                    span.icon-envelope
-                    |  New message from 
-                    strong Jack
-                    small.muted  - 19 hours ago
-                li
-                  a(href='')
-                    span.icon-envelope
-                    |  New message from 
-                    strong Daniel
-                    small.muted  - 2 days ago
-                li
-                  a(href='')
-                    span.icon-envelope
-                    |  New message from 
-                    strong Jane
-                    small.muted  - 3 days ago
-                li
-                  a(href='')
-                    span.icon-envelope
-                    |  New message from 
-                    strong Tanya
-                    small.muted  - 1 week ago
-                li
-                  a(href='')
-                    span.icon-envelope
-                    |  New message from 
-                    strong Lee
-                    small.muted  - 1 week ago
-                li.viewmore
-                  a(href='messages.html') View More Messages
-            li
-              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
-                span.count 10
-                span.head-icon.head-users
-                span.headmenu-label New Users
-              ul.dropdown-menu.newusers
-                li.nav-header New Users
-                li
-                  a(href='')
-                    img.userthumb(src='images/photos/thumb1.png', alt='')
-                    strong Draniem Daamul
-                    small April 20, 2013
-                li
-                  a(href='')
-                    img.userthumb(src='images/photos/thumb2.png', alt='')
-                    strong Shamcey Sindilmaca
-                    small April 19, 2013
-                li
-                  a(href='')
-                    img.userthumb(src='images/photos/thumb3.png', alt='')
-                    strong Nusja Paul Nawancali
-                    small April 19, 2013
-                li
-                  a(href='')
-                    img.userthumb(src='images/photos/thumb4.png', alt='')
-                    strong Rose Cerona
-                    small April 18, 2013
-                li
-                  a(href='')
-                    img.userthumb(src='images/photos/thumb5.png', alt='')
-                    strong John Doe
-                    small April 16, 2013
-            li.odd
-              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
-                span.count 1
-                span.head-icon.head-bar
-                span.headmenu-label Statistics
-              ul.dropdown-menu
-                li.nav-header Statistics
-                li
-                  a(href='')
-                    span.icon-align-left
-                    |  New Reports from 
-                    strong Products
-                    small.muted  - 19 hours ago
-                li
-                  a(href='')
-                    span.icon-align-left
-                    |  New Statistics from 
-                    strong Users
-                    small.muted  - 2 days ago
-                li
-                  a(href='')
-                    span.icon-align-left
-                    |  New Statistics from 
-                    strong Comments
-                    small.muted  - 3 days ago
-                li
-                  a(href='')
-                    span.icon-align-left
-                    |  Most Popular in 
-                    strong Products
-                    small.muted  - 1 week ago
-                li
-                  a(href='')
-                    span.icon-align-left
-                    |  Most Viewed in 
-                    strong Blog
-                    small.muted  - 1 week ago
-                li.viewmore
-                  a(href='charts.html') View More Statistics
             li.right
               .userloggedinfo
                 img(src='data:image/jpge;base64,#{result.img}', alt='')
@@ -156,57 +46,25 @@ html
         .leftmenu
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
-            li.active
-              a(href='/')
+            li
+              a(href='dashboard.html')
                 span.iconfa-laptop
                 |  Dashboard
             li
               a(href='buttons.html')
                 span.iconfa-hand-up
                 |  Buttons & Icons
-            li.dropdown
+            li.dropdown.active
               a(href='')
                 span.iconfa-user
                 |  Profile
-              ul
+              ul(style='display: block')
                 li
                   a(href='/users/#{result._id}') Private Profile
-                li
-                  a(href='wizards.html') Wizard Form
+                li.active
+                  a(href='/editprofile') Edit Profile
                 li
                   a(href='wysiwyg.html') WYSIWYG
-            li.dropdown
-              a(href='')
-                span.iconfa-briefcase
-                |  UI Elements & Widgets
-              ul
-                li
-                  a(href='elements.html') Theme Components
-                li
-                  a(href='bootstrap.html') Bootstrap Components
-                li
-                  a(href='boxes.html') Headers & Boxes
-            li.dropdown
-              a(href='')
-                span.iconfa-th-list
-                |  Tables
-              ul
-                li
-                  a(href='table-static.html') Static Table
-                li.dropdown
-                  a(href='table-dynamic.html') Dynamic Table
-            li
-              a(href='media.html')
-                span.iconfa-picture
-                |  Media Manager
-            li
-              a(href='typography.html')
-                span.iconfa-font
-                |  Typography
-            li
-              a(href='charts.html')
-                span.iconfa-signal
-                |  Graph & Charts
             li
               a(href='messages.html')
                 span.iconfa-envelope
@@ -215,33 +73,8 @@ html
               a(href='calendar.html')
                 span.iconfa-calendar
                 |  Calendar
-            li.dropdown
-              a(href='')
-                span.iconfa-book
-                |  Other Pages
-              ul
-                li
-                  a(href='404.html') 404 Error Page
-                li
-                  a(href='editprofile.html') Edit Profile
-                li
-                  a(href='invoice.html') Invoice Page
-                li
-                  a(href='discussion.html') Discussion Page
-            li.dropdown
-              a(href='')
-                span.iconfa-th-list
-                |  Three Level Menu Sample
-              ul
-                li.dropdown
-                  a(href='') Second Level Menu
-                  ul
-                    li
-                      a(href='') Third Level Menu
-                    li
-                      a(href='') Another Third Level Menu
         // leftmenu
-      // leftpanel
+      // leftpanel      // leftpanel
       .rightpanel
         ul.breadcrumbs
           li
