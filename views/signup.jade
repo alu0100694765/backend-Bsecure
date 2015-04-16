@@ -23,14 +23,8 @@ html
       }
       jQuery('select, input:checkbox').uniform();
       });
-    script(type='text/javascript').
-      $('#i_file').change( function(event) {
-      var tmppath = URL.createObjectURL(event.target.files[0]);
-      var imagePath = document.getElementById('imagePath');
-      imagePath.innerHTML = tmppath;
-      });  
   body.loginpage
-    form#myform.stdform(method='POST', action='/signup')
+    form#myform.stdform(method='POST', action='/signup', enctype='multipart/form-data')
       #wizard3.wizard.tabbedwizard
         ul.tabbedmenu
           li
@@ -121,9 +115,8 @@ html
           p
             label Profile picture
             span.field
-              input#i_file(type='file', name='i_file', value='', accept='image/x-png, image/gif, image/jpeg')
+              input#i_file(type='file', name='image', accept='image/x-png, image/gif, image/jpeg')
           p
-          p#imagePath(hidden='', name='imagePath')  
         // #wiz13tep2
         #wiz3step3.formwiz
           h4 Step 3: Address

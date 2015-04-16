@@ -23,7 +23,7 @@ html(lang='en')
           h1 #{result[0].title} #{result[0].name} #{result[0].surname} 
           h2 #{result[0].username}
         figure
-          img(src='/css/avatar.jpg', alt='Sheldon COOPER')
+          img(src='data:image/jpge;base64,#{result[0].img}', alt='Sheldon COOPER')
     // Corpus
     section.container_16.clearfix(role='main')
       .grid_16

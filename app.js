@@ -38,7 +38,7 @@ var UserSchema = new mongoose.Schema({
     bloodGroup: String,
     allergies: String,
     otherComments: String,
-    img: { data: Buffer, contentType: String },
+    img: String,
     salt: String,
     hash: String
 });
@@ -120,10 +120,11 @@ app.get("/", function (req, res) {
 
     if (req.session.user) {
        // res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
-       console.log(req.session.user);
-       var userData = req.session.user;
-       res.render('dashboard', {
-            result: userData
+      // console.log(req.session.user);
+      
+      var userData = req.session.user;
+      res.render('dashboard', {
+            result: userData,
        });
     } else {
         //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
@@ -163,8 +164,11 @@ app.post("/signup", userExist, function (req, res) {
     var hemophilia = req.body.id_hemophilia;
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
-    var imagePath = req.body.imagePath;
-    console.log(imagePath);
+    
+    var tmp_path = req.files.image.path;
+   
+    var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
+    var base64_image = tmp_buffer.toString('base64');
 
     hash(password, function (err, salt, hash) {
         if (err) throw err;
@@ -192,6 +196,7 @@ app.post("/signup", userExist, function (req, res) {
             allergies: allergies,
             otherComments: comments,
             salt: salt,
+            img: base64_image,
             hash: hash,
         }).save(function (err, newUser) {
             if (err) throw err;
@@ -239,16 +244,18 @@ app.get('/profile', requiredAuthentication, function (req, res) {
     res.send('Profile page of '+ req.session.user.username +'<br>'+' click to <a href="/logout">logout</a>');
 });
 
+
+
 app.get('/users/:id', function (req, res) {
-	console.log(req.params);
-	console.log('findById: ' + req.params.id);
+	//console.log(req.params);
+	//console.log('findById: ' + req.params.id);
 	User.find({'_id': req.params.id}, function (err, item) {
 		//console.log(item);
-		//res.jsonp(item);
-		res.render('profile', {
-			result: item	
+
+        res.render('profile', {
+			result: item,
 		});
-        console.log(item);
+       // console.log(item);
 	});
 });
 
