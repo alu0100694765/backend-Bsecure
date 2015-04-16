@@ -5,6 +5,7 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     mongoose = require('mongoose'),
+    fs = require('fs'),
     hash = require('./pass').hash;
 
 var app = express();
@@ -162,6 +163,7 @@ app.post("/signup", userExist, function (req, res) {
     var hemophilia = req.body.id_hemophilia;
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
+    var imgPath = req.body.id_avatar; 
 
     hash(password, function (err, salt, hash) {
         if (err) throw err;
@@ -190,6 +192,7 @@ app.post("/signup", userExist, function (req, res) {
             otherComments: comments,
             salt: salt,
             hash: hash,
+            img: {data: imgPath, contentType: 'image/jpg'}
         }).save(function (err, newUser) {
             if (err) throw err;
             authenticate(newUser.username, password, function(err, user){
