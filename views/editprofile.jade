@@ -3,7 +3,7 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Shamcey - Metro Style Admin Template
+    title Bsecure
     link(rel='stylesheet', href='css/style.default.css', type='text/css')
     script(type='text/javascript', src='js/jquery-1.9.1.min.js')
     script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
@@ -14,6 +14,11 @@ html
     script(type='text/javascript', src='js/modernizr.min.js')
     script(type='text/javascript', src='js/jquery.smartWizard.min.js')
     script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript').
+      function photo() {
+      var input = document.getElementById("upload-file");
+      input.click();
+      }  
   body
     .mainwrapper
       .header
@@ -103,8 +108,8 @@ html
           .pageicon
             span.iconfa-pencil
           .pagetitle
-            h5 Forms
-            h1 Wizard Forms
+            h5 Profile
+            h1 Edit Profile
         // pageheader
         .maincontent
           .maincontentinner
@@ -118,7 +123,8 @@ html
                         span.caret
                       ul.dropdown-menu
                         li
-                          a(href='#') Change Photo
+                          input#upload-file(accept='image/*', style='display: none', type='file')
+                          a#upload_link(href='#', onclick='photo()') Change Photo
                         li
                           a(href='#') Remove Photo
                     h4.widgettitle Profile Photo
