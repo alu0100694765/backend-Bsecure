@@ -16,7 +16,6 @@ html
     script(type='text/javascript', src='js/custom.js')
     script.
      function loadData() {
-      alert("#{result.sex}");
       document.getElementById("id_title").value = "#{result.title}";
       document.getElementById("id_gender").value = "#{result.sex}";
       document.getElementById("id_identification").value = "#{result.idType}";
@@ -130,7 +129,7 @@ html
               li
                 a(href='brown') Brown
         .pageheader
-          form.searchbar(method='POST', action='/editprofile', enctype='multipart/form-data')
+          form.searchbar(method='POST', action='search.html', enctype='multipart/form-data')
             input(type='text', name='keyword', placeholder='To search type and hit enter...')
           .pageicon
             span.iconfa-pencil
@@ -150,7 +149,6 @@ html
                         span.caret
                       ul.dropdown-menu
                         li
-                          input#upload-file(accept='image/*', hidden='', onchange='refreshImage()', type='file')
                           a#upload_link(onclick='photo()') Change Photo
                         li
                           a(onclick='removeImage()') Remove Photo
@@ -161,10 +159,11 @@ html
                     // profilethumb
               // span4
               .span8
-                form.editprofileform(action='editprofile.html', method='post')
+                form.editprofileform(method='POST', action='/editprofile', enctype='multipart/form-data')
                   .widgetbox.login-information
                     h4.widgettitle Login Information
                     .widgetcontent
+                      input#upload-file(accept='image/*', name='image',hidden='', onchange='refreshImage()', type='file')
                       p
                         label Username:
                         input.input-xlarge(type='text', name='id_username', value='#{result.username}')
@@ -189,10 +188,10 @@ html
                             option Dr
                       p
                         label Firstname:
-                        input.input-xlarge(type='text', name='firstname', value='#{result.name}')
+                        input.input-xlarge(type='text', name='id_first_name', value='#{result.name}')
                       p
                         label Lastname:
-                        input.input-xlarge(type='text', name='lastname', value='#{result.surname}')
+                        input.input-xlarge(type='text', name='id_last_name', value='#{result.surname}')
                       p
                         label Age
                         span.field
