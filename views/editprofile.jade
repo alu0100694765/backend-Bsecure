@@ -130,7 +130,7 @@ html
               li
                 a(href='brown') Brown
         .pageheader
-          form.searchbar(action='results.html', method='post')
+          form.searchbar(method='POST', action='/editprofile', enctype='multipart/form-data')
             input(type='text', name='keyword', placeholder='To search type and hit enter...')
           .pageicon
             span.iconfa-pencil
