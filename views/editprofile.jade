@@ -73,7 +73,7 @@ html
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
             li
-              a(href='dashboard.html')
+              a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
             li
@@ -82,13 +82,13 @@ html
                 |  Buttons & Icons
             li.dropdown.active
               a(href='')
-                span.iconfa-pencil
-                |  Forms
+                span.iconfa-user
+                |  Profile
               ul(style='display: block')
                 li
-                  a(href='forms.html') Private Profile
+                  a(href='/users/#{result._id}') Private Profile
                 li.active
-                  a(href='wizards.html') Edit Profile
+                  a(href='/editprofile') Edit Profile
                 li
                   a(href='wysiwyg.html') WYSIWYG
             li
