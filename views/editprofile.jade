@@ -16,6 +16,7 @@ html
     script(type='text/javascript', src='js/custom.js')
     script.
      function loadData() {
+      alert("#{result.sex}");
       document.getElementById("id_title").value = "#{result.title}";
       document.getElementById("id_gender").value = "#{result.sex}";
       document.getElementById("id_identification").value = "#{result.idType}";

@@ -157,7 +157,7 @@ app.post("/signup", userExist, function (req, res) {
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-    var sex = req.body.id_sex;
+    var sex = req.body.id_gender;
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
