@@ -14,6 +14,17 @@ html
     script(type='text/javascript', src='js/modernizr.min.js')
     script(type='text/javascript', src='js/jquery.smartWizard.min.js')
     script(type='text/javascript', src='js/custom.js')
+    script.
+     function loadData() {
+      document.getElementById("id_title").value = "#{result.title}";
+      document.getElementById("id_gender").value = "#{result.sex}";
+      document.getElementById("id_identification").value = "#{result.idType}";
+      document.getElementById("id_country").value = "#{result.country}";
+      document.getElementById("id_heart").value = "#{result.heartPatient}";
+      document.getElementById("id_respiratory").value = "#{result.respiratoryPatient}";
+      document.getElementById("id_hemophilia").value = "#{result.Hemophilia}";
+      document.getElementById("id_blood").value = "#{result.bloodGroup}"; 
+      }    
     script(type='text/javascript').
       function photo() {
       var input = document.getElementById("upload-file");
@@ -33,8 +44,8 @@ html
     script(type='text/javascript').
       function removeImage() {
       document.getElementById("blah").src = "images/profilethumb.png";
-      }          
-  body
+      }             
+  body(onload='loadData();')
     .mainwrapper
       .header
         .logo
@@ -155,10 +166,10 @@ html
                     .widgetcontent
                       p
                         label Username:
-                        input.input-xlarge(type='text', name='username', value='themepixels')
+                        input.input-xlarge(type='text', name='id_username', value='#{result.username}')
                       p
                         label Email:
-                        input.input-xlarge(type='text', name='email', value='you@yourdomain.com')
+                        input.input-xlarge(type='text', name='id_email', value='#{result.email}')
                       p
                         label(style='padding:0') Password
                         a(href='') Change Password?
@@ -168,7 +179,7 @@ html
                       p
                         label Title
                         span.field
-                          select#id_title.uniformselect(name='id_title', required)
+                          select#id_title.uniformselect(name='id_title')
                             option(value='') Choose one
                             option Mr
                             option Ms
@@ -177,64 +188,64 @@ html
                             option Dr
                       p
                         label Firstname:
-                        input.input-xlarge(type='text', name='firstname', value='Theme')
+                        input.input-xlarge(type='text', name='firstname', value='#{result.name}')
                       p
                         label Lastname:
-                        input.input-xlarge(type='text', name='lastname', value='Pixels')
+                        input.input-xlarge(type='text', name='lastname', value='#{result.surname}')
                       p
                         label Age
                         span.field
-                          input#id_age.input-small(type='text', name='id_age', required)
+                          input#id_age.input-small(type='text', name='id_age', value='#{result.age}')
                       p
                         label Gender
                         span.field
-                          select#id_gender.uniformselect(name='id_gender', required)
+                          select#id_gender.uniformselect(name='id_gender')
                             option Choose One
-                            option Female
-                            option Male
+                            option(value='Female') Female
+                            option(value='Male') Male
                       p
                         label ID Number
                         span.field
-                          input#id_number.input-medium(type='text', name='id_number', required)                            
+                          input#id_number.input-medium(type='text', name='id_number', value='#{result.idNumber}')                            
                       p
                         label ID type
                         span.field
-                          select#id_identification.uniformselect(name='id_identification', required)
+                          select#id_identification.uniformselect(name='id_identification', value='#{result.idType}')
                             option Choose One
                             option NIF
                             option NIE  
                       p
                         label Phone number
                         span.field
-                          input#id_phone.input-medium(type='number', name='id_phone', required)
+                          input#id_phone.input-medium(type='number', name='id_phone', value='#{result.phone}')
                       p
                         label Alternative Phone number
                         span.field
-                          input#id_alternative_phone.input-medium(type='number', name='id_alternative_phone', required)                                                    
+                          input#id_alternative_phone.input-medium(type='number', name='id_alternative_phone', value='#{result.secondPhone}')                                                    
                   .widgetbox.personal-information
                     h4.widgettitle Address
                     .widgetcontent
                       p
                         label Address
                         span.field
-                          input#id_address_text.input-xxlarge(type='text', name='id_address', required)
+                          input#id_address_text.input-xxlarge(type='text', name='id_address', value='#{result.address}')
                       p
                         label Locality
                         span.field
-                          input#id_locality.input-xlarge(type='text', name='id_locality', required)
+                          input#id_locality.input-xlarge(type='text', name='id_locality', value='#{result.locality}')
                       p
                         label City
                         span.field
-                          input#id_city.input-xlarge(type='text', name='id_city', required)
+                          input#id_city.input-xlarge(type='text', name='id_city', value='#{result.city}')
                       p
                         label Zip Code
                         span.field
-                          input#id_zip_code.input-small(type='number', name='id_zip_code', required)
+                          input#id_zip_code.input-small(type='number', name='id_zip_code', value='#{result.zipCode}')
                       p
                         label Select Country
                         span.field
-                          select#id_country.uniformselect(name='id_country', required)
-                            option(value='', selected='selected') Select Country
+                          select#id_country.uniformselect(name='id_country', value='#{result.country}')
+                            option(value='') Select Country
                             option(value='United States') United States
                             option(value='United Kingdom') United Kingdom
                             option(value='Afghanistan') Afghanistan
@@ -482,28 +493,28 @@ html
                       p
                         label Heart patient
                         span.field
-                          select.uniformselect(name='id_heart', required)
+                          select#id_heart.uniformselect(name='id_heart', value='#{result.heartPatient}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Respiratory problems
                         span.field
-                          select.uniformselect(name='id_respiratory', required)
+                          select#id_respiratory.uniformselect(name='id_respiratory', value='#{result.respiratoryPatient}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Hemophilia
                         span.field
-                          select.uniformselect(name='id_hemophilia', required)
+                          select#id_hemophilia.uniformselect(name='id_hemophilia', value='#{result.Hemophilia}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Blood Group
                         span.field
-                          select.uniformselect(name='id_blood', required)
+                          select#id_blood.uniformselect(name='id_blood', value='#{result.bloodGroup}')
                             option Choose One
                             option A +
                             option A -
@@ -516,11 +527,11 @@ html
                       p
                         label Allergies
                         span.field
-                          textarea.span6(cols='80', rows='5', name='id_allergies', required)
+                          textarea.span6(cols='80', rows='5', name='id_allergies', value='#{result.allergies}') #{result.allergies}
                       p
                         label Other comments
                         span.field
-                          textarea.span6(cols='80', rows='5', name='id_comments')
+                          textarea.span6(cols='80', rows='5', name='id_comments', value='#{result.otherComments}') #{result.otherComments}
                   p
                     button.btn.btn-primary(type='submit') Update Profile
                     a(href='') Deactivate your account
