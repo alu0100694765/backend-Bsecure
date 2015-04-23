@@ -142,6 +142,69 @@ app.get("/editprofile", function (req, res) {
     }
 });
 
+app.post("/editprofile", function (req, res) {
+var username = req.body.id_username;
+    var title = req.body.id_title;
+    var first_name = req.body.id_first_name;
+    var last_name = req.body.id_last_name;
+    var age = req.body.id_age;
+    var sex = req.body.id_sex;
+    var id_type = req.body.id_identification;
+    var id_number = req.body.id_number;
+    var address = req.body.id_address;
+    var locality = req.body.id_locality;
+    var city = req.body.id_city;
+    var zip_code = req.body.id_zip_code;
+    var country = req.body.id_country;
+    var email = req.body.id_email;
+    var phone = req.body.id_phone;
+    var alternative_phone = req.body.id_alternative_phone;
+    var heart = req.body.id_heart;
+    var respiratory = req.body.id_respiratory;
+    var blood = req.body.id_blood;
+    var hemophilia = req.body.id_hemophilia;
+    var allergies = req.body.id_allergies;
+    var comments = req.body.id_comments;
+    
+    var tmp_path = req.files.image.path;
+   
+    var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
+    var base64_image = tmp_buffer.toString('base64');
+
+    User.findByIdAndUpdate(req.session.user._id, {
+            username: username,
+            title: title,
+            name: first_name,
+            surname: last_name,
+            age: age,
+            sex: sex,
+            idType: id_type,
+            idNumber: id_number,
+            address: address,
+            locality: locality,
+            city: city,
+            zipCode: zip_code,
+            country: country,
+            email: email,
+            phone: phone,
+            secondPhone: alternative_phone,
+            heartPatient: heart,
+            respiratoryPatient: respiratory,
+            Hemophilia: hemophilia,
+            bloodGroup: blood,
+            allergies: allergies,
+            otherComments: comments,
+            img: base64_image
+    }, function(err, user) {
+         if (err) throw err;
+
+        // we have the updated user returned to us
+        console.log(user);
+
+        res.redirect("/");
+    });
+});
+
 app.get("/signup", function (req, res) {
     if (req.session.user) {
         res.redirect("/");

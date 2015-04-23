@@ -149,7 +149,7 @@ html
                         span.caret
                       ul.dropdown-menu
                         li
-                          input#upload-file(accept='image/*', hidden='', onchange='refreshImage()', type='file')
+                          input#upload-file(accept='image/*', name='image', hidden='', onchange='refreshImage()', type='file')
                           a#upload_link(onclick='photo()') Change Photo
                         li
                           a(onclick='removeImage()') Remove Photo
@@ -160,7 +160,7 @@ html
                     // profilethumb
               // span4
               .span8
-                form.editprofileform(action='editprofile.html', method='post')
+                form.editprofileform(method='POST', action='/editprofile', enctype='multipart/form-data')
                   .widgetbox.login-information
                     h4.widgettitle Login Information
                     .widgetcontent
