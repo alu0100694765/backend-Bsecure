@@ -142,13 +142,24 @@ app.get("/editprofile", function (req, res) {
     }
 });
 
+<<<<<<< HEAD
 app.post("/editprofile", function (req, res) {
 var username = req.body.id_username;
+=======
+
+app.post("/editprofile", function (req, res) {
+
+    var username = req.body.id_username;
+>>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     var title = req.body.id_title;
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
+<<<<<<< HEAD
     var sex = req.body.id_sex;
+=======
+    var sex = req.body.id_gender;
+>>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
@@ -171,6 +182,10 @@ var username = req.body.id_username;
     var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
     var base64_image = tmp_buffer.toString('base64');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     User.findByIdAndUpdate(req.session.user._id, {
             username: username,
             title: title,
@@ -194,6 +209,7 @@ var username = req.body.id_username;
             bloodGroup: blood,
             allergies: allergies,
             otherComments: comments,
+<<<<<<< HEAD
             img: base64_image
     }, function(err, user) {
          if (err) throw err;
@@ -203,6 +219,23 @@ var username = req.body.id_username;
 
         res.redirect("/");
     });
+=======
+            img: base64_image,
+    }, function(err, user){
+        if (err) throw err;
+
+        // we have the updated user returned to us
+        console.log(user);
+    });
+
+    req.login(req.session.user, function(err) {
+        if (err) return next(err)
+
+        //console.log("After relogin: "+req.session.passport.user.changedField)
+        res.send(200)
+    })
+
+>>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
 });
 
 app.get("/signup", function (req, res) {
@@ -220,7 +253,7 @@ app.post("/signup", userExist, function (req, res) {
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-    var sex = req.body.id_sex;
+    var sex = req.body.id_gender;
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
