@@ -3,7 +3,7 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Dashboard of #{result.username}
+    title Dashboard of #{result[0].username}
     link(rel='stylesheet', href='css/style.default.css', type='text/css')
     link(rel='stylesheet', href='css/responsive-tables.css')
     script(type='text/javascript', src='js/jquery-1.9.1.min.js')
@@ -29,11 +29,11 @@ html
           ul.headmenu
             li.right
               .userloggedinfo
-                img(src='data:image/jpge;base64,#{result.img}', alt='')
+                img(src='data:image/jpge;base64,#{result[0].img}', alt='')
                 .userinfo
                   h5
-                    | #{result.name} #{result.surname} 
-                    small - #{result.name}
+                    | #{result[0].name} #{result[0].surname} 
+                    small - #{result[0].name}
                   ul
                     li
                       a(href='/editprofile') Edit Profile
@@ -60,7 +60,7 @@ html
                 |  Profile
               ul(style='display: block')
                 li
-                  a(href='/users/#{result._id}') Private Profile
+                  a(href='/users/#{result[0]._id}') Private Profile
                 li.active
                   a(href='/editprofile') Edit Profile
                 li
@@ -100,7 +100,7 @@ html
               li
                 a(href='brown') Brown
         .pageheader
-          form.searchbar(action='results.html', method='post')
+          form.searchbar(action='result[0]s.html', method='post')
             input(type='text', name='keyword', placeholder='To search type and hit enter...')
           .pageicon
             span.iconfa-laptop

@@ -122,10 +122,20 @@ app.get("/", function (req, res) {
        // res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
       // console.log(req.session.user);
       
-      var userData = req.session.user;
+      User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        res.render('dashboard', {
+            result: item,
+
+        });
+       // console.log(item);
+    });
+
+      /*var userData = req.session.user;
       res.render('dashboard', {
             result: userData,
-       });
+       });*/
     } else {
         //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
         res.render("login");
@@ -134,32 +144,26 @@ app.get("/", function (req, res) {
 
 app.get("/editprofile", function (req, res) {
     if (req.session.user) {
+         User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
         res.render('editprofile', {
-            result: req.session.user
+            result: item,
+
+        });
         });
     } else {
         res.redirect("/");
     }
 });
 
-<<<<<<< HEAD
 app.post("/editprofile", function (req, res) {
-var username = req.body.id_username;
-=======
-
-app.post("/editprofile", function (req, res) {
-
     var username = req.body.id_username;
->>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     var title = req.body.id_title;
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-<<<<<<< HEAD
     var sex = req.body.id_sex;
-=======
-    var sex = req.body.id_gender;
->>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
@@ -177,15 +181,13 @@ app.post("/editprofile", function (req, res) {
     var allergies = req.body.id_allergies;
     var comments = req.body.id_comments;
     
+   if (req.files.image.length > 0) {
+    console.log("entra");
     var tmp_path = req.files.image.path;
    
     var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
     var base64_image = tmp_buffer.toString('base64');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
     User.findByIdAndUpdate(req.session.user._id, {
             username: username,
             title: title,
@@ -209,33 +211,49 @@ app.post("/editprofile", function (req, res) {
             bloodGroup: blood,
             allergies: allergies,
             otherComments: comments,
-<<<<<<< HEAD
             img: base64_image
     }, function(err, user) {
          if (err) throw err;
 
         // we have the updated user returned to us
-        console.log(user);
-
+        //console.log(user);
+        res.send(200);
         res.redirect("/");
     });
-=======
-            img: base64_image,
-    }, function(err, user){
-        if (err) throw err;
-
-        // we have the updated user returned to us
-        console.log(user);
+   } else {
+    User.findByIdAndUpdate(req.session.user._id, {
+            username: username,
+            title: title,
+            name: first_name,
+            surname: last_name,
+            age: age,
+            sex: sex,
+            idType: id_type,
+            idNumber: id_number,
+            address: address,
+            locality: locality,
+            city: city,
+            zipCode: zip_code,
+            country: country,
+            email: email,
+            phone: phone,
+            secondPhone: alternative_phone,
+            heartPatient: heart,
+            respiratoryPatient: respiratory,
+            Hemophilia: hemophilia,
+            bloodGroup: blood,
+            allergies: allergies,
+            otherComments: comments,
+    }, function(err, user) {
+         if (err) throw err;
+       // we have the updated user returned to us
+       // console.log(user);       
+       res.send(200);
+       res.redirect("/");
     });
-
-    req.login(req.session.user, function(err) {
-        if (err) return next(err)
-
-        //console.log("After relogin: "+req.session.passport.user.changedField)
-        res.send(200)
-    })
-
->>>>>>> b1b517e486023e4f126662d370b09b11bc1b2cfd
+   }; 
+   
+    //res.redirect("/");
 });
 
 app.get("/signup", function (req, res) {
@@ -253,7 +271,7 @@ app.post("/signup", userExist, function (req, res) {
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-    var sex = req.body.id_gender;
+    var sex = req.body.id_sex;
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
@@ -357,9 +375,10 @@ app.get('/users/:id', function (req, res) {
     //console.log('findById: ' + req.params.id);
     User.find({'_id': req.params.id}, function (err, item) {
         //console.log(item);
-
+        console.log(item);
         res.render('profile', {
             result: item,
+
         });
        // console.log(item);
     });

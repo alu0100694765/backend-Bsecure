@@ -16,14 +16,14 @@ html
     script(type='text/javascript', src='js/custom.js')
     script.
      function loadData() {
-      document.getElementById("id_title").value = "#{result.title}";
-      document.getElementById("id_gender").value = "#{result.sex}";
-      document.getElementById("id_identification").value = "#{result.idType}";
-      document.getElementById("id_country").value = "#{result.country}";
-      document.getElementById("id_heart").value = "#{result.heartPatient}";
-      document.getElementById("id_respiratory").value = "#{result.respiratoryPatient}";
-      document.getElementById("id_hemophilia").value = "#{result.Hemophilia}";
-      document.getElementById("id_blood").value = "#{result.bloodGroup}"; 
+      document.getElementById("id_title").value = "#{result[0].title}";
+      document.getElementById("id_gender").value = "#{result[0].sex}";
+      document.getElementById("id_identification").value = "#{result[0].idType}";
+      document.getElementById("id_country").value = "#{result[0].country}";
+      document.getElementById("id_heart").value = "#{result[0].heartPatient}";
+      document.getElementById("id_respiratory").value = "#{result[0].respiratoryPatient}";
+      document.getElementById("id_hemophilia").value = "#{result[0].Hemophilia}";
+      document.getElementById("id_blood").value = "#{result[0].bloodGroup}"; 
       }    
     script(type='text/javascript').
       function photo() {
@@ -55,11 +55,11 @@ html
           ul.headmenu
             li.right
               .userloggedinfo
-                img(src='data:image/jpge;base64,#{result.img}', alt='')
+                img(src='data:image/jpge;base64,#{result[0].img}', alt='')
                 .userinfo
                   h5
-                    | #{result.name} #{result.surname} 
-                    small - #{result.name}
+                    | #{result[0].name} #{result[0].surname} 
+                    small - #{result[0].name}
                   ul
                     li
                       a(href='/editprofile') Edit Profile
@@ -86,7 +86,7 @@ html
                 |  Profile
               ul(style='display: block')
                 li
-                  a(href='/users/#{result._id}') Private Profile
+                  a(href='/users/#{result[0]._id}') Private Profile
                 li.active
                   a(href='/editprofile') Edit Profile
                 li
@@ -149,14 +149,13 @@ html
                         span.caret
                       ul.dropdown-menu
                         li
-                          input#upload-file(accept='image/*', name='image', hidden='', onchange='refreshImage()', type='file')
                           a#upload_link(onclick='photo()') Change Photo
                         li
                           a(onclick='removeImage()') Remove Photo
                     h4.widgettitle Profile Photo
                   .widgetcontent
                     .profilethumb
-                      img#blah.img-polaroid(src='data:image/jpge;base64,#{result.img}', alt='')
+                      img#blah.img-polaroid(src='data:image/jpge;base64,#{result[0].img}', alt='')
                     // profilethumb
               // span4
               .span8
@@ -166,10 +165,11 @@ html
                     .widgetcontent
                       p
                         label Username:
-                        input.input-xlarge(type='text', name='id_username', value='#{result.username}')
+                        input#upload-file(accept='image/*', name='image', hidden='', onchange='refreshImage()', type='file')
+                        input.input-xlarge(type='text', name='id_username', value='#{result[0].username}')
                       p
                         label Email:
-                        input.input-xlarge(type='text', name='id_email', value='#{result.email}')
+                        input.input-xlarge(type='text', name='id_email', value='#{result[0].email}')
                       p
                         label(style='padding:0') Password
                         a(href='') Change Password?
@@ -188,63 +188,63 @@ html
                             option Dr
                       p
                         label Firstname:
-                        input.input-xlarge(type='text', name='firstname', value='#{result.name}')
+                        input.input-xlarge(type='text', name='id_first_name', value='#{result[0].name}')
                       p
                         label Lastname:
-                        input.input-xlarge(type='text', name='lastname', value='#{result.surname}')
+                        input.input-xlarge(type='text', name='id_last_name', value='#{result[0].surname}')
                       p
                         label Age
                         span.field
-                          input#id_age.input-small(type='text', name='id_age', value='#{result.age}')
+                          input#id_age.input-small(type='text', name='id_age', value='#{result[0].age}')
                       p
                         label Gender
                         span.field
-                          select#id_gender.uniformselect(name='id_gender')
+                          select#id_gender.uniformselect(name='id_sex')
                             option Choose One
                             option(value='Female') Female
                             option(value='Male') Male
                       p
                         label ID Number
                         span.field
-                          input#id_number.input-medium(type='text', name='id_number', value='#{result.idNumber}')                            
+                          input#id_number.input-medium(type='text', name='id_number', value='#{result[0].idNumber}')                            
                       p
                         label ID type
                         span.field
-                          select#id_identification.uniformselect(name='id_identification', value='#{result.idType}')
+                          select#id_identification.uniformselect(name='id_identification', value='#{result[0].idType}')
                             option Choose One
                             option NIF
                             option NIE  
                       p
                         label Phone number
                         span.field
-                          input#id_phone.input-medium(type='number', name='id_phone', value='#{result.phone}')
+                          input#id_phone.input-medium(type='number', name='id_phone', value='#{result[0].phone}')
                       p
                         label Alternative Phone number
                         span.field
-                          input#id_alternative_phone.input-medium(type='number', name='id_alternative_phone', value='#{result.secondPhone}')                                                    
+                          input#id_alternative_phone.input-medium(type='number', name='id_alternative_phone', value='#{result[0].secondPhone}')                                                    
                   .widgetbox.personal-information
                     h4.widgettitle Address
                     .widgetcontent
                       p
                         label Address
                         span.field
-                          input#id_address_text.input-xxlarge(type='text', name='id_address', value='#{result.address}')
+                          input#id_address_text.input-xxlarge(type='text', name='id_address', value='#{result[0].address}')
                       p
                         label Locality
                         span.field
-                          input#id_locality.input-xlarge(type='text', name='id_locality', value='#{result.locality}')
+                          input#id_locality.input-xlarge(type='text', name='id_locality', value='#{result[0].locality}')
                       p
                         label City
                         span.field
-                          input#id_city.input-xlarge(type='text', name='id_city', value='#{result.city}')
+                          input#id_city.input-xlarge(type='text', name='id_city', value='#{result[0].city}')
                       p
                         label Zip Code
                         span.field
-                          input#id_zip_code.input-small(type='number', name='id_zip_code', value='#{result.zipCode}')
+                          input#id_zip_code.input-small(type='number', name='id_zip_code', value='#{result[0].zipCode}')
                       p
                         label Select Country
                         span.field
-                          select#id_country.uniformselect(name='id_country', value='#{result.country}')
+                          select#id_country.uniformselect(name='id_country', value='#{result[0].country}')
                             option(value='') Select Country
                             option(value='United States') United States
                             option(value='United Kingdom') United Kingdom
@@ -493,28 +493,28 @@ html
                       p
                         label Heart patient
                         span.field
-                          select#id_heart.uniformselect(name='id_heart', value='#{result.heartPatient}')
+                          select#id_heart.uniformselect(name='id_heart', value='#{result[0].heartPatient}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Respiratory problems
                         span.field
-                          select#id_respiratory.uniformselect(name='id_respiratory', value='#{result.respiratoryPatient}')
+                          select#id_respiratory.uniformselect(name='id_respiratory', value='#{result[0].respiratoryPatient}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Hemophilia
                         span.field
-                          select#id_hemophilia.uniformselect(name='id_hemophilia', value='#{result.Hemophilia}')
+                          select#id_hemophilia.uniformselect(name='id_hemophilia', value='#{result[0].Hemophilia}')
                             option Choose One
                             option Yes
                             option No
                       p
                         label Blood Group
                         span.field
-                          select#id_blood.uniformselect(name='id_blood', value='#{result.bloodGroup}')
+                          select#id_blood.uniformselect(name='id_blood', value='#{result[0].bloodGroup}')
                             option Choose One
                             option A +
                             option A -
@@ -527,11 +527,11 @@ html
                       p
                         label Allergies
                         span.field
-                          textarea.span6(cols='80', rows='5', name='id_allergies', value='#{result.allergies}') #{result.allergies}
+                          textarea.span6(cols='80', rows='5', name='id_allergies', value='#{result[0].allergies}') #{result[0].allergies}
                       p
                         label Other comments
                         span.field
-                          textarea.span6(cols='80', rows='5', name='id_comments', value='#{result.otherComments}') #{result.otherComments}
+                          textarea.span6(cols='80', rows='5', name='id_comments', value='#{result[0].otherComments}') #{result[0].otherComments}
                   p
                     button.btn.btn-primary(type='submit') Update Profile
                     a(href='') Deactivate your account
