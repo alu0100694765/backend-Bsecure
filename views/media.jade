@@ -1,0 +1,457 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Shamcey - Metro Style Admin Template
+    link(rel='stylesheet', href='css/style.default.css', type='text/css')
+    link(rel='stylesheet', href='css/isotope.css', type='text/css')
+    script(type='text/javascript', src='js/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
+    script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
+    script(type='text/javascript', src='js/modernizr.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/jquery.isotope.min.js')
+    script(type='text/javascript', src='js/jquery.colorbox-min.js')
+    script(type='text/javascript', src='js/jquery.cookie.js')
+    script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript').
+      jQuery(document).ready(function(){
+      //Replaces data-rel attribute to rel.
+      //We use data-rel because of w3c validation issue
+      jQuery('a[data-rel]').each(function() {
+      jQuery(this).attr('rel', jQuery(this).data('rel'));
+      });
+      jQuery("#medialist a").colorbox();
+      });
+      jQuery(window).load(function(){
+      jQuery('#medialist').isotope({
+      itemSelector : 'li',
+      layoutMode : 'fitRows'
+      });
+      // Media Filter
+      jQuery('#mediafilter a').click(function(){
+      var filter = (jQuery(this).attr('href') != 'all')? '.'+jQuery(this).attr('href') : '*';
+      jQuery('#medialist').isotope({ filter: filter });
+      jQuery('#mediafilter li').removeClass('current');
+      jQuery(this).parent().addClass('current');
+      return false;
+      });
+      });
+  body
+    .mainwrapper
+      .header
+        .logo
+          a(href='dashboard.html')
+            img(src='images/logo.png', alt='')
+        .headerinner
+          ul.headmenu
+            li.odd
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.count 4
+                span.head-icon.head-message
+                span.headmenu-label Messages
+              ul.dropdown-menu
+                li.nav-header Messages
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Jack
+                    small.muted  - 19 hours ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Daniel
+                    small.muted  - 2 days ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Jane
+                    small.muted  - 3 days ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Tanya
+                    small.muted  - 1 week ago
+                li
+                  a(href='')
+                    span.icon-envelope
+                    |  New message from 
+                    strong Lee
+                    small.muted  - 1 week ago
+                li.viewmore
+                  a(href='messages.html') View More Messages
+            li
+              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
+                span.count 10
+                span.head-icon.head-users
+                span.headmenu-label New Users
+              ul.dropdown-menu.newusers
+                li.nav-header New Users
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb1.png', alt='')
+                    strong Draniem Daamul
+                    small April 20, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb2.png', alt='')
+                    strong Shamcey Sindilmaca
+                    small April 19, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb3.png', alt='')
+                    strong Nusja Paul Nawancali
+                    small April 19, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb4.png', alt='')
+                    strong Rose Cerona
+                    small April 18, 2013
+                li
+                  a(href='')
+                    img.userthumb(src='images/photos/thumb5.png', alt='')
+                    strong John Doe
+                    small April 16, 2013
+            li.odd
+              a.dropdown-toggle(data-toggle='dropdown', data-target='#')
+                span.count 1
+                span.head-icon.head-bar
+                span.headmenu-label Statistics
+              ul.dropdown-menu
+                li.nav-header Statistics
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Reports from 
+                    strong Products
+                    small.muted  - 19 hours ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Statistics from 
+                    strong Users
+                    small.muted  - 2 days ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  New Statistics from 
+                    strong Comments
+                    small.muted  - 3 days ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  Most Popular in 
+                    strong Products
+                    small.muted  - 1 week ago
+                li
+                  a(href='')
+                    span.icon-align-left
+                    |  Most Viewed in 
+                    strong Blog
+                    small.muted  - 1 week ago
+                li.viewmore
+                  a(href='charts.html') View More Statistics
+            li.right
+              .userloggedinfo
+                img(src='images/photos/thumb1.png', alt='')
+                .userinfo
+                  h5
+                    | Juan Dela Cruz 
+                    small - juan@themepixels.com
+                  ul
+                    li
+                      a(href='editprofile.html') Edit Profile
+                    li
+                      a(href='') Account Settings
+                    li
+                      a(href='index.html') Sign Out
+          // headmenu
+      .leftpanel
+        .leftmenu
+          ul.nav.nav-tabs.nav-stacked
+            li.nav-header Navigation
+            li
+              a(href='dashboard.html')
+                span.iconfa-laptop
+                |  Dashboard
+            li
+              a(href='buttons.html')
+                span.iconfa-hand-up
+                |  Buttons & Icons
+            li.dropdown
+              a(href='')
+                span.iconfa-pencil
+                |  Forms
+              ul
+                li
+                  a(href='forms.html') Form Styles
+                li
+                  a(href='wizards.html') Wizard Form
+                li
+                  a(href='wysiwyg.html') WYSIWYG
+            li.dropdown
+              a(href='')
+                span.iconfa-briefcase
+                |  UI Elements & Widgets
+              ul
+                li
+                  a(href='elements.html') Theme Components
+                li
+                  a(href='bootstrap.html') Bootstrap Components
+                li
+                  a(href='boxes.html') Headers & Boxes
+            li.dropdown
+              a(href='')
+                span.iconfa-th-list
+                |  Tables
+              ul
+                li
+                  a(href='table-static.html') Static Table
+                li
+                  a(href='table-dynamic.html') Dynamic Table
+            li.active
+              a(href='media.html')
+                span.iconfa-picture
+                |  Media Manager
+            li
+              a(href='typography.html')
+                span.iconfa-font
+                |  Typography
+            li
+              a(href='charts.html')
+                span.iconfa-signal
+                |  Graph & Charts
+            li
+              a(href='messages.html')
+                span.iconfa-envelope
+                |  Messages
+            li
+              a(href='calendar.html')
+                span.iconfa-calendar
+                |  Calendar
+            li.dropdown
+              a(href='')
+                span.iconfa-book
+                |  Other Pages
+              ul
+                li
+                  a(href='404.html') 404 Error Page
+                li
+                  a(href='editprofile.html') Edit Profile
+                li
+                  a(href='invoice.html') Invoice Page
+                li
+                  a(href='discussion.html') Discussion Page
+            li.dropdown
+              a(href='')
+                span.iconfa-th-list
+                |  Three Level Menu Sample
+              ul
+                li.dropdown
+                  a(href='') Second Level Menu
+                  ul
+                    li
+                      a(href='') Third Level Menu
+                    li
+                      a(href='') Another Third Level Menu
+        // leftmenu
+      // leftpanel
+      .rightpanel
+        ul.breadcrumbs
+          li
+            a(href='dashboard.html')
+              i.iconfa-home
+            span.separator
+          li Media Manager
+          li.right
+            a.dropdown-toggle(href='', data-toggle='dropdown')
+              i.icon-tint
+              |  Color Skins
+            ul.dropdown-menu.pull-right.skin-color
+              li
+                a(href='default') Default
+              li
+                a(href='navyblue') Navy Blue
+              li
+                a(href='palegreen') Pale Green
+              li
+                a(href='red') Red
+              li
+                a(href='green') Green
+              li
+                a(href='brown') Brown
+        .pageheader
+          form.searchbar(action='results.html', method='post')
+            input(type='text', name='keyword', placeholder='To search type and hit enter...')
+          .pageicon
+            span.iconfa-laptop
+          .pagetitle
+            h5 Manage Photos, Documents & more
+            h1 Media Manager
+        // pageheader
+        .maincontent
+          .maincontentinner
+            .mediamgr
+              .mediamgr_left
+                .mediamgr_head
+                  ul.mediamgr_menu
+                    li
+                      a.btn.prev.prev_disabled
+                        span.icon-chevron-left
+                    li
+                      a.btn.next
+                        span.icon-chevron-right
+                    li.marginleft15
+                      a.btn.selectall
+                        span.icon-check
+                        |  Select All
+                    li.marginleft15.newfoldbtn
+                      a.btn.newfolder(title='Add New Folder')
+                        span.icon-folder-open
+                    li.marginleft5.trashbtn
+                      a.btn.trash(title='Trash')
+                        span.icon-trash
+                    li.marginleft15.filesearch
+                      form
+                        input#filekeyword.filekeyword(type='text', placeholder='Search file here')
+                    li.right.newfilebtn
+                      a.btn.btn-primary(href='') Upload New File
+                  span.clearall
+                // mediamgr_head
+                .mediamgr_category
+                  ul#mediafilter
+                    li.current
+                      a(href='all') All
+                    li
+                      a(href='image') Images
+                    li
+                      a(href='video') Video
+                    li
+                      a(href='audio') Audio
+                    li
+                      a(href='doc') Documents
+                    li.right
+                      span.pagenuminfo Showing 1 - 20 of 69
+                // mediamgr_category
+                .mediamgr_content
+                  ul#medialist.listfile
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image1.png', alt='')
+                      span.filename Image1.jpg
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image2.png', alt='')
+                      span.filename Image2.jpg
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial1.pdf
+                    li.video
+                      a(href='ajax/video.html')
+                        img(src='images/thumbs/video.png', alt='')
+                      span.filename Movie1.avi
+                    li.audio
+                      a(href='ajax/audio.html')
+                        img(src='images/thumbs/audio.png', alt='')
+                      span.filename Song1.mp3
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial2.pdf
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial3.pdf
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image3.png', alt='')
+                      span.filename Image1.jpg
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image4.png', alt='')
+                      span.filename Image2.jpg
+                    li.doc
+                      a(href='ajax/doc.html', data-rel='doc')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutoria4.pdf
+                    li.video
+                      a(href='ajax/video.html')
+                        img(src='images/thumbs/video.png', alt='')
+                      span.filename Movie1.avi
+                    li.audio
+                      a(href='ajax/audio.html')
+                        img(src='images/thumbs/audio.png', alt='')
+                      span.filename Song1.mp3
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial5.pdf
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial6.pdf
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image5.png', alt='')
+                      span.filename Image1.jpg
+                    li.image
+                      a(href='ajax/image.html')
+                        img(src='images/thumbs/image6.png', alt='')
+                      span.filename Image2.jpg
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial.pdf
+                    li.video
+                      a(href='ajax/video.html')
+                        img(src='images/thumbs/video.png', alt='')
+                      span.filename Movie1.avi
+                    li.audio
+                      a(href='ajax/audio.html')
+                        img(src='images/thumbs/audio.png', alt='')
+                      span.filename Song1.mp3
+                    li.doc
+                      a(href='ajax/doc.html')
+                        img(src='images/thumbs/doc.png', alt='')
+                      span.filename Tutorial1.pdf
+                  br.clearall
+                // mediamgr_content
+              // mediamgr_left
+              .mediamgr_right
+                .mediamgr_rightinner
+                  h4 Browse Files
+                  ul.menuright
+                    li.current
+                      a(href='') All Files
+                    li
+                      a(href='') Deleted Files
+                    li
+                      a(href='') Recently Added
+                    li
+                      a(href='') Recently Viewed
+                    li
+                      a(href='') New Folder
+                    li
+                      a(href='') New Folder(2)
+                // mediamgr_rightinner
+              // mediamgr_right
+              br.clearall
+            // mediamgr
+            .footer
+              .footer-left
+                span © 2013. Shamcey Admin Template. All Rights Reserved.
+              .footer-right
+                span
+                  | Designed by: 
+                  a(href='http://themepixels.com/') ThemePixels
+            // footer
+          // maincontentinner
+        // maincontent
+      // rightpanel
+    // mainwrapper
