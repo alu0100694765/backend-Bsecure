@@ -384,4 +384,21 @@ app.get('/users/:id', function (req, res) {
     });
 });
 
+
+app.get('/calendar', function (req, res) {
+    if (req.session.user) {
+         User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        res.render('calendar', {
+            result: item,
+
+        });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
+
 http.createServer(app).listen(3000);
