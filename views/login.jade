@@ -16,14 +16,11 @@ html
     script(type='text/javascript', src='js/custom.js')
     script(type='text/javascript').
       jQuery(document).ready(function(){
-      jQuery('#login').submit(function(){
-      var u = jQuery('#username').val();
-      var p = jQuery('#password').val();
-      if(u == '' && p == '') {
+      var error = "#{error}";
+      if(error == 'true') {
       jQuery('.login-alert').fadeIn();
       return false;
       }
-      });
       });
   body.loginpage
     .loginpanel

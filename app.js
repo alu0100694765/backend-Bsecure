@@ -353,7 +353,9 @@ app.post("/login", function (req, res) {
             });
         } else {
             req.session.error = 'Authentication failed, please check your ' + ' username and password.';
-            res.redirect('/login');
+            res.render('login', {
+                error: 'true'
+            });
         }
     });
 });
