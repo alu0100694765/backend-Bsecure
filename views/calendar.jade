@@ -3,7 +3,7 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Bsecure calendar
+    title #{result[0].name}'s calendar
     link(rel='stylesheet', href='css/style.default.css', type='text/css')
     script(type='text/javascript', src='js/jquery-1.9.1.min.js')
     script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
@@ -88,24 +88,16 @@ html
               a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
-            li
-              a(href='buttons.html')
-                span.iconfa-hand-up
-                |  Buttons & Icons
-            li.dropdown.active
+            li.dropdown
               a(href='')
                 span.iconfa-user
                 |  Profile
               ul(style='display: block')
                 li
                   a(href='/users/#{result[0]._id}') Private Profile
-                li.active
+                li
                   a(href='/editprofile') Edit Profile
-            li
-              a(href='messages.html')
-                span.iconfa-envelope
-                |  Messages
-            li
+            li.active
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar

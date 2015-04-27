@@ -229,6 +229,9 @@ h1,h2,h3,h4,h5 { font-weight: normal; line-height: normal; }
 .shortcuts li .iconsi-archive { background: url(../images/icons/icon-archive.png) no-repeat center center; }
 .shortcuts li .iconsi-help { background: url(../images/icons/icon-help.png) no-repeat center center; }
 .shortcuts li .iconsi-images { background: url(../images/icons/icon-images.png) no-repeat center center; }
+.shortcuts li .iconsi-user { background: url(../images/icons/users.png) no-repeat center center; }
+.shortcuts li .iconsi-source { background: url(../images/icons/source.png) no-repeat center center; }
+.shortcuts li .iconsi-beacon { background: url(../images/icons/signal.png) no-repeat center center; }
 
 .widget {
 	-moz-box-shadow: 1px 1px 8px rgba(0,0,0,0.3);
