@@ -1,0 +1,113 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Help
+    link(rel='stylesheet', href='css/style.default.css', type='text/css')
+    script(type='text/javascript', src='js/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
+    script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
+    script(type='text/javascript', src='js/modernizr.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/fullcalendar.min.js')
+    script(type='text/javascript', src='js/jquery.cookie.js')
+    script(type='text/javascript', src='js/custom.js')
+  body
+    .mainwrapper
+      .header
+        .logo
+          a(href='/')
+            img(src='images/indexlogo.png', alt='')
+        .headerinner
+          ul.headmenu
+            li.right
+              .userloggedinfo
+                img(src='data:image/jpge;base64,#{result[0].img}', alt='')
+                .userinfo
+                  h5
+                    | #{result[0].name} #{result[0].surname} 
+                    small - #{result[0].name}
+                  ul
+                    li
+                      a(href='/editprofile') Edit Profile
+                    li
+                      a(href='') Account Settings
+                    li
+                      a(href='/logout') Sign Out
+          // headmenu
+      .leftpanel
+        .leftmenu
+          ul.nav.nav-tabs.nav-stacked
+            li.nav-header Navigation
+            li.active
+              a(href='/')
+                span.iconfa-laptop
+                |  Dashboard
+            li.dropdown
+              a(href='')
+                span.iconfa-user
+                |  Profile
+              ul(style='display: block')
+                li
+                  a(href='/users/#{result[0]._id}') Private Profile
+                li
+                  a(href='/editprofile') Edit Profile
+            li
+              a(href='/calendar')
+                span.iconfa-calendar
+                |  Calendar
+            li
+                a(href='/beacon')
+                  span.iconfa-rss
+                  |  Beacon app
+            li
+                a(href='/help')
+                  span.iconsweets-help
+                  |  Help                               
+        // leftmenu
+      // leftpanel      // leftpanel
+      .rightpanel
+        ul.breadcrumbs
+          li
+            a(href='/')
+              i.iconfa-home
+            span.separator
+          li Dashboard
+          li.right
+            a.dropdown-toggle(href='', data-toggle='dropdown')
+              i.icon-tint
+              |  Color Skins
+            ul.dropdown-menu.pull-right.skin-color
+              li
+                a(href='default') Default
+              li
+                a(href='navyblue') Navy Blue
+              li
+                a(href='palegreen') Pale Green
+              li
+                a(href='red') Red
+              li
+                a(href='green') Green
+              li
+                a(href='brown') Brown
+        .pageheader
+          form.searchbar(action='results.html', method='post')
+            input(type='text', name='keyword', placeholder='To search type and hit enter...')
+          .pageicon
+            span.iconsweets-help
+          .pagetitle
+            h5 Tutorial for set beacon with app
+            h1 Help
+        // pageheader
+        .maincontent
+          .maincontentinner
+            
+            .footer
+              .footer-left
+                span 2015. Sawan J. Kapai Harpalani.
+            // footer
+          // maincontentinner
+        // maincontent
+      // rightpanel
+    // mainwrapper
