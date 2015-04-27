@@ -18,6 +18,10 @@ html
     script(type='text/javascript', src='js/custom.js')
     script(type='text/javascript').
       jQuery(document).ready(function(){
+      var error = "#{error}";
+      if(error == 'true') {
+      jQuery('.login-alert').fadeIn();
+      }
       // Smart Wizard
       jQuery('#wizard3').smartWizard({onFinish: onFinishCallback});
       function onFinishCallback(){
@@ -51,6 +55,8 @@ html
               span.label Terms of Agreement
         #wiz3step1.formwiz
           h4 Step 1: Username
+          .inputwrapper.login-alert
+            .alert.alert-error Username exists
           p
             label Username
             span.field

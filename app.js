@@ -108,7 +108,9 @@ function userExist(req, res, next) {
             next();
         } else {
             req.session.error = "User Exist"
-            res.redirect("/signup");
+            res.render("signup", {
+                error: 'true',
+            });
         }
     });
 }
