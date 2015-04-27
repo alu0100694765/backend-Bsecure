@@ -400,5 +400,34 @@ app.get('/calendar', function (req, res) {
     }
 });
 
+app.get('/beacon', function (req, res) {
+    if (req.session.user) {
+        User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        res.render('beacon', {
+            result: item,
+
+        });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
+app.get('/help', function (req, res) {
+    if (req.session.user) {
+         User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        res.render('help', {
+            result: item,
+
+        });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
 
 http.createServer(app).listen(3000);
