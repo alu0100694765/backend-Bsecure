@@ -72,31 +72,31 @@ html
         .leftmenu
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
-            li
+            li.active
               a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
-            li
-              a(href='buttons.html')
-                span.iconfa-hand-up
-                |  Buttons & Icons
-            li.dropdown.active
+            li.dropdown
               a(href='')
                 span.iconfa-user
                 |  Profile
               ul(style='display: block')
                 li
                   a(href='/users/#{result[0]._id}') Private Profile
-                li.active
+                li
                   a(href='/editprofile') Edit Profile
-            li
-              a(href='messages.html')
-                span.iconfa-envelope
-                |  Messages
             li
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar
+            li
+                a(href='/calendar')
+                  span.iconfa-rss
+                  |  Beacon app
+            li
+                a(href='/calendar')
+                  span.iconsweets-help
+                  |  Help                               
         // leftmenu
       // leftpanel
       .rightpanel

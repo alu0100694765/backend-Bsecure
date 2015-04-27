@@ -84,7 +84,7 @@ html
         .leftmenu
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
-            li
+            li.active
               a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
@@ -97,10 +97,18 @@ html
                   a(href='/users/#{result[0]._id}') Private Profile
                 li
                   a(href='/editprofile') Edit Profile
-            li.active
+            li
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar
+            li
+                a(href='/calendar')
+                  span.iconfa-rss
+                  |  Beacon app
+            li
+                a(href='/calendar')
+                  span.iconsweets-help
+                  |  Help                               
         // leftmenu
       // leftpanel      // leftpanel
       .rightpanel
