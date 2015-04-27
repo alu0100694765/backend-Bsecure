@@ -84,7 +84,7 @@ html
         .leftmenu
           ul.nav.nav-tabs.nav-stacked
             li.nav-header Navigation
-            li.active
+            li
               a(href='/')
                 span.iconfa-laptop
                 |  Dashboard
@@ -97,7 +97,7 @@ html
                   a(href='/users/#{result[0]._id}') Private Profile
                 li
                   a(href='/editprofile') Edit Profile
-            li
+            li.active
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar
