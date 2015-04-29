@@ -323,7 +323,6 @@ app.post("/signup", userExist, function (req, res) {
             allergies: allergies,
             otherComments: comments,
             salt: salt,
-            admin: 'true',
             img: base64_image,
             hash: hash,
         }).save(function (err, newUser) {
