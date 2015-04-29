@@ -39,6 +39,7 @@ var UserSchema = new mongoose.Schema({
     allergies: String,
     otherComments: String,
     img: String,
+    admin: String,
     salt: String,
     hash: String
 });
