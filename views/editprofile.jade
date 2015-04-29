@@ -16,8 +16,15 @@ html
     script(type='text/javascript', src='js/modernizr.min.js')
     script(type='text/javascript', src='js/jquery.smartWizard.min.js')
     script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript').
+      function checkAdmin() {
+      if("#{result[0].admin}" === 'true') {
+      document.getElementById('admin_tools').style.visibility = "visible";
+      };
+      }            
     script.
      function loadData() {
+      checkAdmin();
       document.getElementById("id_title").value = "#{result[0].title}";
       document.getElementById("id_gender").value = "#{result[0].sex}";
       document.getElementById("id_identification").value = "#{result[0].idType}";
@@ -99,7 +106,7 @@ html
                 a(href='/help')
                   span.iconfa-question-sign
                   |  Help   
-            li.dropdown(name='admin_tools', style='visibility: hidden')
+            li#admin_tools.dropdown(style='visibility: hidden')
               a(href='')
                 span.iconfa-group
                 |  Users

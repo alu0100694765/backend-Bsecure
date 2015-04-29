@@ -16,6 +16,12 @@ html
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/custom.js')
     script(type='text/javascript').
+      function checkAdmin() {
+      if("#{result[0].admin}" === 'true') {
+      document.getElementById('admin_tools').style.visibility = "visible";
+      };
+      }            
+    script(type='text/javascript').
       jQuery(document).ready(function() {
       var date = new Date();
       var d = date.getDate();
@@ -59,7 +65,7 @@ html
         ]
       });
       });
-  body
+  body(onload='checkAdmin();')
     .mainwrapper
       .header
         .logo
@@ -111,7 +117,7 @@ html
                 a(href='/help')
                   span.iconfa-question-sign
                   |  Help  
-            li.dropdown(name='admin_tools', style='visibility: hidden')
+            li#admin_tools.dropdown(style='visibility: hidden')
               a(href='')
                 span.iconfa-group
                 |  Users
