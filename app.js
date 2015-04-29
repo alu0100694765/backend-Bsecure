@@ -435,4 +435,19 @@ app.get('/help', function (req, res) {
     }
 });
 
+app.get('/data', function (req, res) {
+    if (req.session.user) {
+         User.find({'_id': req.session.user._id}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        res.render('data', {
+            result: item,
+
+        });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
 http.createServer(app).listen(3000);
