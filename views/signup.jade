@@ -17,25 +17,54 @@ html
     script(type='text/javascript', src='js/jquery.smartWizard.min.js')
     script(type='text/javascript', src='js/custom.js')
     script(type='text/javascript', src='js/jquery.validate.min.js')
-    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js')
     script(type='text/javascript').
       jQuery(document).ready(function(){
       var error = "#{error}";
       if(error == 'true') {
       jQuery('.login-alert').fadeIn();
       }
+      function validateForm()
+      {
+      var a=document.forms["myform"]["id_username"].value;
+      var b=document.forms["myform"]["id_password"].value;
+      var c=document.forms["myform"]["id_title"].value;
+      var d=document.forms["myform"]["id_first_name"].value;
+      var e=document.forms["myform"]["id_last_name"].value;
+      var f=document.forms["myform"]["id_gender"].value;
+      var g=document.forms["myform"]["id_identification"].value;
+      var h=document.forms["myform"]["id_number"].value;
+      var i=document.forms["myform"]["id_phone"].value;
+      var j=document.forms["myform"]["id_alternative_phone"].value;
+      var k=document.forms["myform"]["image"].value;
+      var l=document.forms["myform"]["id_address"].value;
+      var m=document.forms["myform"]["id_locality"].value;
+      var n=document.forms["myform"]["id_city"].value;
+      var o=document.forms["myform"]["id_zip_code"].value;
+      var p=document.forms["myform"]["id_country"].value;
+      var q=document.forms["myform"]["id_heart"].value;
+      var r=document.forms["myform"]["id_respiratory"].value;
+      var s=document.forms["myform"]["id_hemophilia"].value;
+      var t=document.forms["myform"]["id_blood"].value;
+      var u=document.forms["myform"]["id_first_name"].value;
+      if (a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="",e==null || e=="",f==null || f=="",g==null || g=="",h==null || h=="",i==null || i=="",j==null || j=="",k==null || k=="",l==null || l=="",m==null || m=="",n==null || n=="",o==null || o=="",p==null || p=="",q==null || q=="",r==null || r=="",s==null || s=="",t==null || t=="",u==null || u=="")
+      {
+      alert("Please Fill All Required Field");
+      return false;
+      } else {
+      return true;
+      }
+      }
       // Smart Wizard
       jQuery('#wizard3').smartWizard({ transitionEffect:'slideleft', onFinish: onFinishCallback});     
       function onFinishCallback(){
-      //document.getElementById('myform').submit();
-      if (document.getElementById('myform').valid()) {
-      alert("valid");
-      };
+      if(validateForm()){
+      document.getElementById('myform').submit();
+      }
       }
       jQuery('select, input:checkbox').uniform();
       });
   body.loginpage
-    form#myform.stdform(method='POST', action='/signup', enctype='multipart/form-data')
+    form#myform.stdform(method='POST', action='/signup', enctype='multipart/form-data', name='myform')
       #wizard3.wizard.tabbedwizard
         ul.tabbedmenu
           li
@@ -65,11 +94,11 @@ html
           .par.control-group
               label.control-label(for='id_username') Username
               .controls
-                input#id_username.input-large(type='text', name='id_username')
+                input#id_username.input-large(type='text', name='id_username', required)
           .par.control-group
               label.control-label(for='id_password') Password
               .controls
-                input#id_password.input-large(type='password', name='id_password')
+                input#id_password.input-large(type='password', name='id_password', required)
         // #wiz13tep1
         #wiz3step2.formwiz
           h4 Step 2: Personal Information
@@ -95,14 +124,14 @@ html
               label.control-label(for='id_gender') Gender
               .controls
                   select#id_gender.uniformselect(name='id_gender', required)
-                    option Choose One
+                    option(value='') Choose One
                     option Female
                     option Male
           .par.control-group
               label.control-label(for='id_identification') ID type
               .controls
                   select#id_identification.uniformselect(name='id_identification', required)
-                    option Choose One
+                    option(value='') Choose One
                     option NIF
                     option NIE
           .par.control-group
@@ -397,28 +426,28 @@ html
               label.control-label(for='id_heart') Heart patient
               .controls
                 select#id_heart.uniformselect(name='id_heart', required)
-                  option Choose One
+                  option(value='') Choose One
                   option Yes
                   option No
           .par.control-group
               label.control-label(for='id_respiratory') Respiratory problems
               .controls
                 select#id_respiratory.uniformselect(name='id_respiratory', required)
-                  option Choose One
+                  option(value='') Choose One
                   option Yes
                   option No
           .par.control-group
               label.control-label(for='id_hemophilia') Hemophilia
               .controls
                 select#id_hemophilia.uniformselect(name='id_hemophilia', required)
-                  option Choose One
+                  option(value='') Choose One
                   option Yes
                   option No                
           .par.control-group
               label.control-label(for='id_blood') Blood Group
               .controls
                 select#id_blood.uniformselect(name='id_blood', required)
-                  option Choose One
+                  option(value='') Choose One
                   option A +
                   option A -
                   option B +
