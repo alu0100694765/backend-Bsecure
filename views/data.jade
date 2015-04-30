@@ -16,7 +16,17 @@ html
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/modernizr.min.js')
     script(type='text/javascript', src='js/responsive-tables.js')
-    script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript', src='js/custom.js')   
+    script(type='text/javascript').
+      function checkAdmin() {
+      a();
+      if("#{result[0].admin}" === 'true') {
+      document.getElementById('admin_tools').style.visibility = "visible";
+      };
+      }   
+      function a() {
+    
+      };          
     script(type='text/javascript').
       jQuery(document).ready(function(){
       // dynamic table
@@ -142,11 +152,11 @@ html
                     tr
                       th.head0.nosort
                         input.checkall(type='checkbox')
-                      th.head0 Rendering engine
-                      th.head1 Browser
-                      th.head0 Platform(s)
-                      th.head1 Engine version
-                      th.head0 CSS grade
+                      th.head0 Name
+                      th.head1 Age
+                      th.head0 Sex
+                      th.head1 ID Type
+                      th.head0 ID Number
                   tbody
                     tr.gradeX
                       td.aligncenter

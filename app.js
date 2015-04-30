@@ -437,17 +437,38 @@ app.get('/help', function (req, res) {
 
 app.get('/data', function (req, res) {
     if (req.session.user) {
-         User.find({'_id': req.session.user._id}, function (err, item) {
+        var actual_user;
+        User.find({'_id': req.session.user._id}, function (err, item) {
+            actual_user = item;
+        });
+         User.find({}, function (err, item) {
         //console.log(item);
-        //console.log(item);
-        res.render('data', {
-            result: item,
 
+        console.log(item.length);
+        res.render('data', {
+            result: actual_user,
+            tableData: item,
         });
         });
     } else {
         res.redirect("/");
     }
 });
+
+app.get('/stats', function (req, res) {
+    if (req.session.user) {
+         User.find({}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        //res.render('data', {
+         //   result: item,
+        // console.log(item[2]);
+       // });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
 
 http.createServer(app).listen(3000);
