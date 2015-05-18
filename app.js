@@ -438,13 +438,12 @@ app.get('/help', function (req, res) {
 app.get('/data', function (req, res) {
     if (req.session.user) {
         var actual_user;
-        User.find({'_id': req.session.user._id}, function (err, item) {
-            actual_user = item;
+        User.find({'_id': req.session.user._id}, function (err, u) {
+            actual_user = u;
         });
-         User.find({}, function (err, item) {
-        //console.log(item);
 
-        console.log(item.length);
+        User.find({}, function (err, item) {
+        //console.log(item);
         res.render('data', {
             result: actual_user,
             tableData: item,
