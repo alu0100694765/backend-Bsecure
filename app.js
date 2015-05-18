@@ -324,7 +324,6 @@ app.post("/signup", userExist, function (req, res) {
             otherComments: comments,
             salt: salt,
             img: base64_image,
-            admin: "true",
             hash: hash,
         }).save(function (err, newUser) {
             if (err) throw err;
@@ -443,7 +442,7 @@ app.get('/data', function (req, res) {
             actual_user = u;
         });
 
-        User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1}, function (err, item) {
+        User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, _id: 0}, function (err, item) {
         console.log(item);
         res.render('data', {
             result: actual_user,

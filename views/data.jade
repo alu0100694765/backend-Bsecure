@@ -80,13 +80,11 @@ html
       ['Other browsers','All others','-','-','U']
       ];
 
-      var dataSett = !{JSON.stringify(tableData)};
       $(document).ready(function() {
       $('#dyntable').dataTable( {
       "sPaginationType": "full_numbers",
       "aaSortingFixed": [[0,'asc']],
-
-      "data": dataSett,
+      "data": dataSet,
       "columns": [
       { "title": "Name" },
       { "title": "Age", "class": "center"  },
@@ -98,21 +96,10 @@ html
       } ); 
     script(type='text/javascript').
       function checkAdmin() {
-
       if("#{result[0].admin}" === 'true') {
       document.getElementById('admin_tools').style.visibility = "visible";
       };
       }   
-    script(type='text/javascript').
-      jQuery(document).ready(function(){
-      // dynamic table
-
-      jQuery('#dyntable2').dataTable( {
-      "bScrollInfinite": true,
-      "bScrollCollapse": true,
-      "sScrollY": "300px"
-      });
-      });
   body(onload='checkAdmin();')
     .mainwrapper
       .header
