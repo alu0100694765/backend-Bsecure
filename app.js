@@ -274,7 +274,7 @@ app.post("/signup", userExist, function (req, res) {
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-    var sex = req.body.id_sex;
+    var sex = req.body.id_gender;
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
@@ -438,17 +438,37 @@ app.get('/help', function (req, res) {
 
 app.get('/data', function (req, res) {
     if (req.session.user) {
-         User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
-        res.render('data', {
-            result: item,
+        var actual_user;
+        User.find({'_id': req.session.user._id}, function (err, u) {
+            actual_user = u;
+        });
 
+        User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, _id: 0}, function (err, item) {
+        console.log(item);
+        res.render('data', {
+            result: actual_user,
+            tableData: item,
         });
         });
     } else {
         res.redirect("/");
     }
 });
+
+app.get('/stats', function (req, res) {
+    if (req.session.user) {
+         User.find({}, function (err, item) {
+        //console.log(item);
+        //console.log(item);
+        //res.render('data', {
+         //   result: item,
+        // console.log(item[2]);
+       // });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
 
 http.createServer(app).listen(3000);
