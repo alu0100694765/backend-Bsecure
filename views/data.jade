@@ -79,12 +79,14 @@ html
       ['Misc','PSP browser','PSP','-','C'],
       ['Other browsers','All others','-','-','U']
       ];
+
+      var dataSett = !{JSON.stringify(tableData)};
       $(document).ready(function() {
       $('#dyntable').dataTable( {
       "sPaginationType": "full_numbers",
       "aaSortingFixed": [[0,'asc']],
 
-      "data": dataSet,
+      "data": dataSett,
       "columns": [
       { "title": "Name" },
       { "title": "Age", "class": "center"  },

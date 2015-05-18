@@ -274,7 +274,7 @@ app.post("/signup", userExist, function (req, res) {
     var first_name = req.body.id_first_name;
     var last_name = req.body.id_last_name;
     var age = req.body.id_age;
-    var sex = req.body.id_sex;
+    var sex = req.body.id_gender;
     var id_type = req.body.id_identification;
     var id_number = req.body.id_number;
     var address = req.body.id_address;
@@ -324,6 +324,7 @@ app.post("/signup", userExist, function (req, res) {
             otherComments: comments,
             salt: salt,
             img: base64_image,
+            admin: "true",
             hash: hash,
         }).save(function (err, newUser) {
             if (err) throw err;
@@ -442,8 +443,8 @@ app.get('/data', function (req, res) {
             actual_user = u;
         });
 
-        User.find({}, function (err, item) {
-        //console.log(item);
+        User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1}, function (err, item) {
+        console.log(item);
         res.render('data', {
             result: actual_user,
             tableData: item,
