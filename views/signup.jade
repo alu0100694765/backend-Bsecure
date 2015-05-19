@@ -46,7 +46,8 @@ html
       var s=document.forms["myform"]["id_hemophilia"].value;
       var t=document.forms["myform"]["id_blood"].value;
       var u=document.forms["myform"]["id_first_name"].value;
-      if (a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="",e==null || e=="",f==null || f=="",g==null || g=="",h==null || h=="",i==null || i=="",j==null || j=="",k==null || k=="",l==null || l=="",m==null || m=="",n==null || n=="",o==null || o=="",p==null || p=="",q==null || q=="",r==null || r=="",s==null || s=="",t==null || t=="",u==null || u=="")
+      var v=document.forms["myform"]["id_agreement"].value;
+      if (!a || !b || !c || !d || !e || !f || !g || !h || !i || !j || !k || !l || !m || !n || !o || !p || !q || !r || !s || !t || !u || !v)
       {
       alert("Please Fill All Required Field");
       return false;
@@ -153,7 +154,7 @@ html
           .par.control-group
               label.control-label(for='id_alternative_phone') Alternative phone number
               .controls
-                input#id_alternative_phone.input-large(type='text', name='id_alternative_phone')                
+                input#id_alternative_phone.input-large(type='number', name='id_alternative_phone')                
             label Profile picture
             span.field
               input#i_file(type='file', name='image', accept='image/x-png, image/gif, image/jpeg')
@@ -482,7 +483,7 @@ html
               | We are registered under the Data Protection Act 1998 and as such, any information concerning the Client and their respective Client Records may be passed to third parties. However, Client records are regarded as confidential and therefore will not be divulged to any third party, other than [our manufacturer/supplier(s) and] if legally required to do so to the appropriate authorities. Clients have the right to request sight of, and copies of any and all Client Records we keep, on the proviso that we are given reasonable notice of such a request. Clients are requested to retain copies of any literature issued in relation to the provision of our services. Where appropriate, we shall issue Client‟s with appropriate written information, handouts or copies of records as part of an agreed contract, for the benefit of both parties.  
             br
             p
-              input(type='checkbox', name='id_agreement')
+              input#id_agreement(type='checkbox', name='id_agreement')
               |  I agree with the terms and agreement...
         // #wiz3step5
       // #wizard
