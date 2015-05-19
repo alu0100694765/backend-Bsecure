@@ -3,9 +3,9 @@ html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Beacon App
+    title Statistics
     link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
-    link(rel='icon', href='images/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='images/favicon.ico', type='image/x-icon')    
     link(rel='stylesheet', href='css/style.default.css', type='text/css')
     script(type='text/javascript', src='js/jquery-1.9.1.min.js')
     script(type='text/javascript', src='js/jquery-migrate-1.1.1.min.js')
@@ -65,15 +65,15 @@ html
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar
-            li.active
+            li
                 a(href='/beacon')
                   span.iconfa-rss
                   |  Beacon app
             li
                 a(href='/help')
                   span.iconfa-question-sign
-                  |  Help    
-            li#admin_tools.dropdown(style='visibility: hidden')
+                  |  Help                               
+            li#admin_tools.active.dropdown(style='visibility: hidden')
               a(href='')
                 span.iconfa-group
                 |  Users
@@ -81,7 +81,7 @@ html
                 li
                   a(href='/data') Data
                 li
-                  a(href='/stats') Statistics                                              
+                  a(href='/stats') Statistics                   
         // leftmenu
       // leftpanel      // leftpanel
       .rightpanel
@@ -90,7 +90,7 @@ html
             a(href='/')
               i.iconfa-home
             span.separator
-          li Beacon
+          li Help
           li.right
             a.dropdown-toggle(href='', data-toggle='dropdown')
               i.icon-tint
@@ -110,13 +110,14 @@ html
                 a(href='brown') Brown
         .pageheader
           .pageicon
-            span.iconfa-rss
+            span.iconfa-bar-chart
           .pagetitle
-            h5 Android App
-            h1 Beacon Apps
+            h5 Lets study the data
+            h1 Statistics
         // pageheader
         .maincontent
           .maincontentinner
+
 
             .footer
               .footer-left

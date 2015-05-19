@@ -323,7 +323,6 @@ app.post("/signup", userExist, function (req, res) {
             allergies: allergies,
             otherComments: comments,
             salt: salt,
-            admin: 'true',
             img: base64_image,
             hash: hash,
         }).save(function (err, newUser) {
@@ -460,10 +459,9 @@ app.get('/stats', function (req, res) {
          User.find({}, function (err, item) {
         //console.log(item);
         //console.log(item);
-        //res.render('data', {
-         //   result: item,
-        // console.log(item[2]);
-       // });
+        res.render('stats', {
+            result: item,
+         });
         });
     } else {
         res.redirect("/");

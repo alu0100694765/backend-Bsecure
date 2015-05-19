@@ -20,6 +20,11 @@ html
     script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.1.min.js')
     script(type='text/javascript', src='https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js')  
     script(type='text/javascript').
+      function checkAdmin() { 
+      if("#{result[0].admin}" === 'true') {
+      document.getElementById('admin_tools').style.visibility = "visible";
+      };
+      }         
       var dataSet = [
       ['Trident','Internet Explorer 4.0','Win 95+','4','X'],
       ['Trident','Internet Explorer 5.0','Win 95+','5','C'],
@@ -79,7 +84,6 @@ html
       ['Misc','PSP browser','PSP','-','C'],
       ['Other browsers','All others','-','-','U']
       ];
-
       $(document).ready(function() {
       $('#dyntable').dataTable( {
       "sPaginationType": "full_numbers",
@@ -93,13 +97,7 @@ html
       { "title": "ID Number"}
       ]
       } );
-      } ); 
-    script(type='text/javascript').
-      function checkAdmin() {
-      if("#{result[0].admin}" === 'true') {
-      document.getElementById('admin_tools').style.visibility = "visible";
-      };
-      }   
+      } );       
   body(onload='checkAdmin();')
     .mainwrapper
       .header
@@ -144,7 +142,7 @@ html
               a(href='/calendar')
                 span.iconfa-calendar
                 |  Calendar
-            li.active
+            li
                 a(href='/beacon')
                   span.iconfa-rss
                   |  Beacon app
@@ -152,7 +150,7 @@ html
                 a(href='/help')
                   span.iconfa-question-sign
                   |  Help    
-            li#admin_tools.dropdown(style='visibility: hidden')
+            li#admin_tools.active.dropdown(style='visibility: hidden')
               a(href='')
                 span.iconfa-group
                 |  Users
