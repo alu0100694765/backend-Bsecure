@@ -84,11 +84,25 @@ html
       ['Misc','PSP browser','PSP','-','C'],
       ['Other browsers','All others','-','-','U']
       ];
+      function create2DArray(rows){
+        var arr = [];
+        for (var i=0;i<rows;i++) {
+          arr[i] = [];
+        }
+        return arr;
+      }
+      var data = !{JSON.stringify(tableData)};
+      var dataSett = create2DArray(data.length);
+      for (var i=0; i< data.length; i++){
+        dataSett[i][0] = data[i].name;
+        dataSett[i][1] = data[i].age;
+        dataSett[i][2] = data[i].sex;
+        dataSett[i][3] = data[i].idType;
+        dataSett[i][4] = data[i].idNumber;
+      }
       $(document).ready(function() {
       $('#dyntable').dataTable( {
-      "sPaginationType": "full_numbers",
-      "aaSortingFixed": [[0,'asc']],
-      "data": dataSet,
+      "data": dataSett,
       "columns": [
       { "title": "Name" },
       { "title": "Age", "class": "center"  },

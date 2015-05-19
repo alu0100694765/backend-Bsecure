@@ -12,9 +12,16 @@ html
     script(type='text/javascript', src='js/jquery-ui-1.9.2.min.js')
     script(type='text/javascript', src='js/modernizr.min.js')
     script(type='text/javascript', src='js/bootstrap.min.js')
-    script(type='text/javascript', src='js/fullcalendar.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.pie.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.symbol.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.fillbetween.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.crosshair.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.stack.min.js')
+    script(type='text/javascript', src='js/flot/jquery.flot.resize.min.js')
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/custom.js')
+    script(type='text/javascript', src='js/charts.js')    
     script(type='text/javascript').
       function checkAdmin() {
       if("#{result[0].admin}" === 'true') {
@@ -117,7 +124,10 @@ html
         // pageheader
         .maincontent
           .maincontentinner
-
+            h4.widgettitle Pie Chart
+            .widgetcontent
+              #piechart(style='height: 300px;')
+            // widgetcontent
 
             .footer
               .footer-left

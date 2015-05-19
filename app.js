@@ -440,15 +440,18 @@ app.get('/data', function (req, res) {
         var actual_user;
         User.find({'_id': req.session.user._id}, function (err, u) {
             actual_user = u;
+           if (u != null && u != undefined) {
+                 User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, _id: 0}, function (err, item) {
+                    console.log(item);
+                    res.render('data', {
+                        result: actual_user,
+                        tableData: item,
+                    });
+                    });
+           };
         });
 
-        User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, _id: 0}, function (err, item) {
-        console.log(item);
-        res.render('data', {
-            result: actual_user,
-            tableData: item,
-        });
-        });
+        
     } else {
         res.redirect("/");
     }
