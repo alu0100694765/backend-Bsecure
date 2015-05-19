@@ -97,7 +97,7 @@ html
             a(href='/')
               i.iconfa-home
             span.separator
-          li Help
+          li Statistics
           li.right
             a.dropdown-toggle(href='', data-toggle='dropdown')
               i.icon-tint
@@ -124,10 +124,53 @@ html
         // pageheader
         .maincontent
           .maincontentinner
-            h4.widgettitle Pie Chart
-            .widgetcontent
-              #piechart(style='height: 300px;')
-            // widgetcontent
+            .row-fluid
+              .span6
+                h4.widgettitle Simple Chart
+                .widgetcontent
+                  #chartplace(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle Bar Chart
+                .widgetcontent
+                  #bargraph(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle Real Time Chart
+                .widgetcontent
+                  #realtime(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle Pie Chart
+                .widgetcontent
+                  #piechart(style='height: 300px;')
+                // widgetcontent
+              // span6
+              .span6
+                h4.widgettitle Using Other Symbols
+                .widgetcontent
+                  #chartplace2(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle Percentiles
+                .widgetcontent
+                  #percentiles(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle With Crosshair
+                .widgetcontent
+                  #chartplace3(style='height:300px;')
+                // widgetcontent
+                h4.widgettitle Stacking
+                .widgetcontent
+                  #stacking(style='height:300px;')
+                  br
+                  .stackControls
+                    button.btn With stacking
+                    button.btn Without stacking
+                  .graphControls
+                    button.btn Bars
+                    button.btn Lines
+                    button.btn Lines with steps
+                  .clearfix
+                // widgetcontent
+              // span6
+            // row-fluid
 
             .footer
               .footer-left
