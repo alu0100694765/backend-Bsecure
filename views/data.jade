@@ -42,6 +42,24 @@ html
         dataSett[i][4] = data[i].idNumber;
         dataSett[i][5] = data[i].phone;
       }
+      var data_addr = !{JSON.stringify(addr)};
+      var dataSetAddr = create2DArray(data_addr.length);
+      for (var i=0; i< data_addr.length; i++){
+        dataSetAddr[i][0] = data_addr[i].name + " " + data_addr[i].surname;
+        dataSetAddr[i][1] = data_addr[i].address;
+        dataSetAddr[i][2] = data_addr[i].locality;
+        dataSetAddr[i][3] = data_addr[i].city;
+        dataSetAddr[i][4] = data_addr[i].country;
+      } 
+      var data_health = !{JSON.stringify(health)};
+      var dataSetHealth = create2DArray(data_health.length);
+      for (var i=0; i< data_health.length; i++){
+        dataSetHealth[i][0] = data_health[i].name + " " + data_health[i].surname;
+        dataSetHealth[i][1] = data_health[i].heartPatient;
+        dataSetHealth[i][2] = data_health[i].respiratoryPatient;
+        dataSetHealth[i][3] = data_health[i].Hemophilia;
+        dataSetHealth[i][4] = data_health[i].allergies;
+      }            
       $(document).ready(function() {
       $('#dyntable').dataTable( {
       "data": dataSett,
@@ -54,6 +72,26 @@ html
       { "title": "Phone Number"}
       ]
       } );
+      $('#address_table').dataTable( {
+      "data": dataSetAddr,
+      "columns": [
+      { "title": "Name" },
+      { "title": "Address"},
+      { "title": "Locality", "class": "center"  },
+      { "title": "City", "class": "center" },
+      { "title": "Country", "class": "center" },
+      ]
+      } ); 
+      $('#health_table').dataTable( {
+      "data": dataSetHealth,
+      "columns": [
+      { "title": "Name" },
+      { "title": "Heart Problems", "class": "center" },
+      { "title": "Respiratory Problems", "class": "center"  },
+      { "title": "Hemophilia", "class": "center" },
+      { "title": "Allergies"},
+      ]
+      } );            
       } );       
   body(onload='checkAdmin();')
     .mainwrapper

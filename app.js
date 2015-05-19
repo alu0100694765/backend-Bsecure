@@ -442,12 +442,23 @@ app.get('/data', function (req, res) {
             actual_user = u;
            if (u != null && u != undefined) {
                  User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, phone: 1, surname: 1, _id: 0}, function (err, item) {
-                    console.log(item);
-                    res.render('data', {
-                        result: actual_user,
-                        tableData: item,
+                    //console.log(item);
+                    //res.render('data', {
+                      //  result: actual_user,
+                        //tableData: item,
+                    //});
+                    User.find({}, {name: 1, address: 1, locality: 1, city: 1, country: 1, surname: 1, _id: 0}, function (err, a) {
+                        User.find({}, {name: 1, heartPatient: 1, respiratoryPatient: 1, Hemophilia: 1, allergies: 1, surname: 1, _id: 0}, function (err, h) {
+                            console.log(h);
+                            res.render('data', {
+                                result: actual_user,
+                                tableData: item,
+                                addr: a,
+                                health: h,
+                            });
+                        });
                     });
-                    });
+                 });
            };
         });
 
