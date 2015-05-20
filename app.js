@@ -5,12 +5,10 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     fs = require('fs'),
-    jwt = require('jwt-simple'),
     mongoose = require('mongoose'),
     hash = require('./pass').hash;
 
 var app = express();
-app.set('jwtTokenSecret', 'sm');
 
 /*
 Database and Models
