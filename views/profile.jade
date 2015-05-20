@@ -17,13 +17,31 @@ html(lang='en')
     link(rel='stylesheet', media='screen and (max-width:480px)', href='/css/mobile.css')
     link(rel='stylesheet', media='screen and (min-width:481px)', href='/css/cv.css')
     link(rel='stylesheet', media='print', href='/css/print.css')
-  body
+    script(type='text/javascript').
+      function showInfo() {
+      if("#{profile_type}" == "public") {
+      var myList = document.getElementsByTagName("li");
+      for (var i=0;i<myList.length;i++) {
+      if(myList[i].id != "heartPatient" && myList[i].id != "respiratoryPatient" && myList[i].id != "Hemophilia" && myList[i].id != "bloodGroup" && myList[i].id != "allergies" ) {  
+      myList[i].style["color"] = "transparent";
+      myList[i].style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
+      }
+      }
+      address.style["color"] = "transparent";
+      address.style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
+      header.style["color"] = "transparent";
+      header.style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
+      username.style["color"] = "transparent";
+      username.style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
+      }      
+      }            
+  body(onload='showInfo();')
     // Header
     header(role='banner')
       .container_16
         hgroup
-          h1 #{result[0].title} #{result[0].name} #{result[0].surname} 
-          h2 #{result[0].username}
+          h1#header #{result[0].title} #{result[0].name} #{result[0].surname} 
+          h2#username #{result[0].username}
         figure
           img(src='data:image/jpge;base64,#{result[0].img}')
     // Corpus
@@ -51,7 +69,7 @@ html(lang='en')
         // Address
         .grid_8.address
           h3 Address
-          p #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
+          p#address #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
       // Contact
       .grid_8.contact
         h3 Contact
@@ -69,19 +87,19 @@ html(lang='en')
       .grid_8.health
         h3 Health Information
         ul#health
-          li
+          li#heartPatient
             strong Heart patient: 
             #{result[0].bloodGroup} #{result[0].heartPatient}
-          li
+          li#respiratoryPatient
             strong Respiratory problems: 
             #{result[0].bloodGroup} #{result[0].respiratoryPatient}
-          li
+          li#Hemophilia
             strong Hemophilia: 
             #{result[0].bloodGroup} #{result[0].Hemophilia}
-          li
+          li#bloodGroup
             strong Blood group: 
             #{result[0].bloodGroup} #{result[0].bloodGroup} 
-          li
+          li#allergies
             strong Allergies: 
             #{result[0].allergies} #{result[0].allergies} 
       // Other comments

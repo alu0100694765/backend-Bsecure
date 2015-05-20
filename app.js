@@ -378,12 +378,16 @@ app.get('/profile', requiredAuthentication, function (req, res) {
 app.get('/users/:id', function (req, res) {
     //console.log(req.params);
     //console.log('findById: ' + req.params.id);
+    var user_type = "public";
+    if (req.session.user.admin == "true" || req.session.user._id == req.params.id) {
+        user_type = "private";
+    };
     User.find({'_id': req.params.id}, function (err, item) {
         //console.log(item);
         console.log(item);
         res.render('profile', {
             result: item,
-
+            profile_type: user_type,
         });
        // console.log(item);
     });
