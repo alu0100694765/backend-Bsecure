@@ -84,19 +84,7 @@ jQuery(document).ready(function(){
 		});
 		
 		
-		/**PIE CHART IN MAIN PAGE WHERE LABELS ARE INSIDE THE PIE CHART**/
-		var data = [];
-		var series = 5;
-		for( var i = 0; i<series; i++) {
-			data[i] = { label: "Series"+(i+1), data: Math.floor(Math.random()*100)+1 }
-		}
-		jQuery.plot(jQuery("#piechart"), data, {
-				colors: ['#680fb3','#9ab30f','#b32e0f','#0f6fb3','#b30fa6'],		   
-				series: {
-					pie: { show: true }
-				}
-		});
-		
+
 				
 		/***REAL TIME CHART***/
 		// we use an inline data source in the example, usually data would

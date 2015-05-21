@@ -21,7 +21,28 @@ html
     script(type='text/javascript', src='js/flot/jquery.flot.resize.min.js')
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/custom.js')
-    script(type='text/javascript', src='js/charts.js')    
+    script(type='text/javascript', src='js/charts.js')
+    script(type='text/javascript').
+      jQuery(document).ready(function(){    
+      /**PIE CHART IN MAIN PAGE WHERE LABELS ARE INSIDE THE PIE CHART**/
+      var women = !{JSON.stringify(n_women)};
+      var men = !{JSON.stringify(n_men)};
+      var data = [];
+      var series = 2;
+      for( var i = 0; i<series; i++) {
+        if (i == 0) {
+          data[i] = { label: women[0].sex, data: women.length }
+        } else if (i == 1) {
+          data[i] = { label: men[0].sex, data: men.length }
+        };
+      }
+      jQuery.plot(jQuery("#piechart"), data, {
+          colors: ['#680fb3','#9ab30f','#b32e0f','#0f6fb3','#b30fa6'],       
+          series: {
+            pie: { show: true }
+          }
+      });          
+      });
     script(type='text/javascript').
       function checkAdmin() {
       if("#{result[0].admin}" === 'true') {

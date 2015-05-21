@@ -475,11 +475,15 @@ app.get('/data', function (req, res) {
 app.get('/stats', function (req, res) {
     if (req.session.user) {
          User.find({}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
-        res.render('stats', {
-            result: item,
-         });
+            User.find({'sex': 'Male'}, function (err, men) {
+                User.find({'sex': 'Female'}, function (err, women) {
+                    res.render('stats', {
+                        result: item,
+                        n_men: men,
+                        n_women: women,
+                     });
+                });
+            });
         });
     } else {
         res.redirect("/");
