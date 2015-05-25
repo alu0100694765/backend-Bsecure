@@ -21,7 +21,7 @@ html
     script(type='text/javascript', src='js/flot/jquery.flot.resize.min.js')
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/custom.js')
-    script(type='text/javascript', src='js/charts.js')
+   
     script(type='text/javascript').
       jQuery(document).ready(function(){    
       /**PIE CHART IN MAIN PAGE WHERE LABELS ARE INSIDE THE PIE CHART**/
@@ -150,47 +150,12 @@ html
                 h4.widgettitle Simple Chart
                 .widgetcontent
                   #chartplace(style='height:300px;')
-                // widgetcontent
-                h4.widgettitle Bar Chart
-                .widgetcontent
-                  #bargraph(style='height:300px;')
-                // widgetcontent
-                h4.widgettitle Real Time Chart
-                .widgetcontent
-                  #realtime(style='height:300px;')
-                // widgetcontent
+              // span6
+              .span6
                 h4.widgettitle Sex Statistics
                 .widgetcontent
                   #piechart(style='height: 300px;')
                 // widgetcontent
-              // span6
-              .span6
-                h4.widgettitle Using Other Symbols
-                .widgetcontent
-                  #chartplace2(style='height:300px;')
-                // widgetcontent
-                h4.widgettitle Percentiles
-                .widgetcontent
-                  #percentiles(style='height:300px;')
-                // widgetcontent
-                h4.widgettitle With Crosshair
-                .widgetcontent
-                  #chartplace3(style='height:300px;')
-                // widgetcontent
-                h4.widgettitle Stacking
-                .widgetcontent
-                  #stacking(style='height:300px;')
-                  br
-                  .stackControls
-                    button.btn With stacking
-                    button.btn Without stacking
-                  .graphControls
-                    button.btn Bars
-                    button.btn Lines
-                    button.btn Lines with steps
-                  .clearfix
-                // widgetcontent
-              // span6
             // row-fluid
 
             .footer
