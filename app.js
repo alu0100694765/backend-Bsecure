@@ -477,11 +477,20 @@ app.get('/stats', function (req, res) {
          User.find({}, function (err, item) {
             User.find({'sex': 'Male'}, function (err, men) {
                 User.find({'sex': 'Female'}, function (err, women) {
-                    res.render('stats', {
-                        result: item,
-                        n_men: men,
-                        n_women: women,
-                     });
+                    User.find({'heartPatient': 'Yes'}, function (err, heart) {
+                        User.find({'respiratoryPatient': 'Yes'}, function (err, respiratory) {
+                            User.find({'Hemophilia': 'Yes'}, function (err, hemophilia) {
+                                res.render('stats', {
+                                    result: item,
+                                    n_men: men,
+                                    n_women: women,
+                                    n_heart: heart,
+                                    n_respiratory: respiratory,
+                                    n_hemophilia: hemophilia
+                                 });
+                            });
+                        });
+                    });
                 });
             });
         });
