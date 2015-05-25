@@ -21,7 +21,7 @@ html
     script(type='text/javascript', src='js/flot/jquery.flot.resize.min.js')
     script(type='text/javascript', src='js/jquery.cookie.js')
     script(type='text/javascript', src='js/custom.js')
-   
+    script(type='text/javascript', src='js/Chart.js')   
     script(type='text/javascript').
       jQuery(document).ready(function(){    
       /**PIE CHART IN MAIN PAGE WHERE LABELS ARE INSIDE THE PIE CHART**/
@@ -46,6 +46,21 @@ html
     script(type='text/javascript').
       function checkAdmin() {
       if("#{result[0].admin}" === 'true') {
+      var ctx = document.getElementById('chart').getContext("2d");
+      var data = {
+          labels: ["Heart patient", "Respiratory patient", "Hemophilia"],
+          datasets: [
+              {
+                  label: "My First dataset",
+                  fillColor: "rgba(220,220,220,0.5)",
+                  strokeColor: "rgba(220,220,220,0.8)",
+                  highlightFill: "rgba(220,220,220,0.75)",
+                  highlightStroke: "rgba(220,220,220,1)",
+                  data: [65, 59, 80]
+              }
+          ]
+      };
+      var myBarChart = new Chart(ctx).Bar(data);        
       document.getElementById('admin_tools').style.visibility = "visible";
       };
       }            
@@ -149,7 +164,8 @@ html
               .span6
                 h4.widgettitle Simple Chart
                 .widgetcontent
-                  #chartplace(style='height:300px;')
+                  #barchart(style='height:300px;')
+                    canvas#chart.base(width='453', height='300')
               // span6
               .span6
                 h4.widgettitle Sex Statistics
