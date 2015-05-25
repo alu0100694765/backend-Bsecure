@@ -1,5 +1,5 @@
 /*
-Module Dependencies 
+*Module Dependencies 
 */
 var express = require('express'),
     http = require('http'),
@@ -122,25 +122,13 @@ Routes
 app.get("/", function (req, res) {
 
     if (req.session.user) {
-       // res.send("Welcome " + req.session.user.username + "<br>" + "<a href='/logout'>logout</a>");
-      // console.log(req.session.user);
-      
       User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
         res.render('dashboard', {
             result: item,
 
         });
-       // console.log(item);
     });
-
-      /*var userData = req.session.user;
-      res.render('dashboard', {
-            result: userData,
-       });*/
     } else {
-        //res.send("<a href='/login'> Login</a>" + "<br>" + "<a href='/signup'> Sign Up</a>");
         res.render("login");
     }
 });
@@ -148,8 +136,6 @@ app.get("/", function (req, res) {
 app.get("/editprofile", function (req, res) {
     if (req.session.user) {
          User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
         res.render('editprofile', {
             result: item,
 
@@ -185,7 +171,6 @@ app.post("/editprofile", function (req, res) {
     var comments = req.body.id_comments;
     
    if (req.files.image.length > 0) {
-    console.log("entra");
     var tmp_path = req.files.image.path;
    
     var tmp_buffer = new Buffer(fs.readFileSync(tmp_path));
@@ -217,9 +202,6 @@ app.post("/editprofile", function (req, res) {
             img: base64_image
     }, function(err, user) {
          if (err) throw err;
-
-        // we have the updated user returned to us
-        //console.log(user);
         res.send(200);
         res.redirect("/");
     });
@@ -249,14 +231,10 @@ app.post("/editprofile", function (req, res) {
             otherComments: comments,
     }, function(err, user) {
          if (err) throw err;
-       // we have the updated user returned to us
-       // console.log(user);       
        res.send(200);
        res.redirect("/");
     });
    }; 
-   
-    //res.redirect("/");
 });
 
 app.get("/signup", function (req, res) {
@@ -376,20 +354,15 @@ app.get('/profile', requiredAuthentication, function (req, res) {
 
 
 app.get('/users/:id', function (req, res) {
-    //console.log(req.params);
-    //console.log('findById: ' + req.params.id);
     var user_type = "public";
     if (req.session.user.admin == "true" || req.session.user._id == req.params.id) {
         user_type = "private";
     };
     User.find({'_id': req.params.id}, function (err, item) {
-        //console.log(item);
-        console.log(item);
         res.render('profile', {
             result: item,
             profile_type: user_type,
         });
-       // console.log(item);
     });
 });
 
@@ -397,11 +370,8 @@ app.get('/users/:id', function (req, res) {
 app.get('/calendar', function (req, res) {
     if (req.session.user) {
          User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
         res.render('calendar', {
             result: item,
-
         });
         });
     } else {
@@ -412,8 +382,6 @@ app.get('/calendar', function (req, res) {
 app.get('/beacon', function (req, res) {
     if (req.session.user) {
         User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
         res.render('beacon', {
             result: item,
 
@@ -427,8 +395,6 @@ app.get('/beacon', function (req, res) {
 app.get('/help', function (req, res) {
     if (req.session.user) {
          User.find({'_id': req.session.user._id}, function (err, item) {
-        //console.log(item);
-        //console.log(item);
         res.render('help', {
             result: item,
 
@@ -446,14 +412,8 @@ app.get('/data', function (req, res) {
             actual_user = u;
            if (u != null && u != undefined) {
                  User.find({}, {name: 1, age: 1, sex: 1, idType: 1, idNumber: 1, phone: 1, surname: 1, _id: 0}, function (err, item) {
-                    //console.log(item);
-                    //res.render('data', {
-                      //  result: actual_user,
-                        //tableData: item,
-                    //});
                     User.find({}, {name: 1, address: 1, locality: 1, city: 1, country: 1, surname: 1, _id: 0}, function (err, a) {
                         User.find({}, {name: 1, heartPatient: 1, respiratoryPatient: 1, Hemophilia: 1, allergies: 1, surname: 1, _id: 0}, function (err, h) {
-                            console.log(h);
                             res.render('data', {
                                 result: actual_user,
                                 tableData: item,
