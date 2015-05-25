@@ -47,6 +47,7 @@ html
       function checkAdmin() {
       if("#{result[0].admin}" === 'true') {
       var ctx = document.getElementById('chart').getContext("2d");
+      Chart.defaults.global.responsive = true;
       var data = {
           labels: ["Heart patient", "Respiratory patient", "Hemophilia"],
           datasets: [
