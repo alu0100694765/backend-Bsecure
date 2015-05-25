@@ -440,7 +440,7 @@ app.get('/help', function (req, res) {
 });
 
 app.get('/data', function (req, res) {
-    if (req.session.user) {
+    if (req.session.user && req.session.user.admin == "true") {
         var actual_user;
         User.find({'_id': req.session.user._id}, function (err, u) {
             actual_user = u;
@@ -473,7 +473,7 @@ app.get('/data', function (req, res) {
 });
 
 app.get('/stats', function (req, res) {
-    if (req.session.user) {
+    if (req.session.user && req.session.user.admin == "true") {
          User.find({}, function (err, item) {
             User.find({'sex': 'Male'}, function (err, men) {
                 User.find({'sex': 'Female'}, function (err, women) {
