@@ -1,4 +1,4 @@
-Web App ITS
+Backend of Bsecure
 ========
 Web app designed using [MEAN](http://mean.io/).
 * version: 1.0
@@ -11,6 +11,7 @@ Sawan Jagdish Kapai Harpalani. Contact: <alu0100694765@ull.edu.es>
 This project is under GNU license.
 
 ## Project Description.
+Bsecure is a project design to track people who are on a excursion or a hiking trip and have got lost. On the other hand it has also been created for viewing health information of the subject that carries the Beacon. Going into detail of the previous idea, if some user finds another user in an emergency state he or she can view the profile of that user and perfom according to it.
 
 ## M.E.A.N Stack [![MEAN Logo](http://mean.io/system/assets/img/logos/meanlogo.png)](http://mean.io/) 
 
