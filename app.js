@@ -8,17 +8,23 @@ var express = require('express'),
     mongoose = require('mongoose'),
     jwt = require('jwt-simple'),
     moment = require('moment'),
+    config = require('./config'),
     hash = require('./pass').hash;
 
 var app = express();
 
-exports.createToken = function(user) {  
-    var = payload = {
-        sub: user _id,
+function createToken(user) {
+    var user_type = 0;
+    if (user.admin == "true") {
+        user_type = 1;
+    };  
+    var payload = {
+        sub: user._id,
         iat: moment().unix(),
         exp: moment().add(7, "days").unix(),
+        role: user_type,
     };
-    return jwt.encode(payload,);
+    return jwt.encode(payload, config.TOKEN_SECRET);
 }
 
 
@@ -353,6 +359,17 @@ app.post("/login", function (req, res) {
     });
 });
 
+app.post("/login-android", function (req, res) {
+    authenticate(req.body.username, req.body.password, function (err, user) {
+        if (user) {
+
+            req.session.regenerate(function () {
+                return res.status(200).send({token: createToken(user)});
+            });
+        }
+    });
+});
+
 app.get('/logout', function (req, res) {
     req.session.destroy(function () {
         res.redirect('/');
@@ -376,6 +393,27 @@ app.get('/users/:id', function (req, res) {
             profile_type: user_type,
         });
     });
+});
+
+
+app.get('/users/:id/:authorization', function (req, res, next) {
+        var token = req.params.authorization;
+        var payload = jwt.decode(token,config.TOKEN_SECRET);
+
+        if (payload.exp <= moment().unix()) {
+            res.status(401).send({message: "El token ha expirado"});
+        } else {           
+            var user_type = "public";
+            if (payload.role == 1 || payload.sub == req.params.id) {
+                user_type = "private";
+            };
+            User.find({'_id': req.params.id}, function (err, item) {
+                res.render('profile', {
+                    result: item,
+                    profile_type: user_type,
+                });
+            });   
+        };
 });
 
 
