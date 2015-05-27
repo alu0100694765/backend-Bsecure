@@ -12,7 +12,14 @@ var express = require('express'),
 
 var app = express();
 
-
+exports.createToken = function(user) {  
+    var = payload = {
+        sub: user _id,
+        iat: moment().unix(),
+        exp: moment().add(7, "days").unix(),
+    };
+    return jwt.encode(payload,);
+}
 
 
 /*
