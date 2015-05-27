@@ -25,14 +25,18 @@ html(lang='en')
       if(myList[i].id != "heartPatient" && myList[i].id != "respiratoryPatient" && myList[i].id != "Hemophilia" && myList[i].id != "bloodGroup" && myList[i].id != "allergies" ) {  
       myList[i].style["color"] = "transparent";
       myList[i].style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
+      myList[i].innerHTML = "This is confidential Information";
       }
       }
       address.style["color"] = "transparent";
       address.style["text-shadow"] = "0 0 40px rgba(0,0,0,0.5)";
+      address.innerHTML = "This is confidential Information";
       header.style["color"] = "transparent";
       header.style["text-shadow"] = "0 0 40px rgba(0,0,0,0.5)";
+      header.innerHTML = "This is confidential Information";
       username.style["color"] = "transparent";
       username.style["text-shadow"] = "0 0 40px rgba(0,0,0,0.5)";
+      username.innerHTML = "This is confidential Information";
       }      
       }            
   body(onload='showInfo();')
