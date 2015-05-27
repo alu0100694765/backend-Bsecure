@@ -6,9 +6,13 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     mongoose = require('mongoose'),
+    jwt = require('jwt-simple'),
     hash = require('./pass').hash;
 
 var app = express();
+
+
+
 
 /*
 Database and Models
