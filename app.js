@@ -7,6 +7,7 @@ var express = require('express'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     jwt = require('jwt-simple'),
+    moment = require('moment'),
     hash = require('./pass').hash;
 
 var app = express();
