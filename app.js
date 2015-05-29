@@ -364,7 +364,9 @@ app.post("/login-android", function (req, res) {
         if (user) {
 
             req.session.regenerate(function () {
-                return res.status(200).send({token: createToken(user)});
+                var tok = createToken(user);
+                var payload = jwt.decode(tok, config.TOKEN_SECRET);
+                return res.status(200).send({token: tok, exp: payload.exp});
             });
         }
     });
