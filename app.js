@@ -367,7 +367,7 @@ app.post("/login-android", function (req, res) {
                 var payload = jwt.decode(tok, config.TOKEN_SECRET);
                 var date = moment.unix(payload.exp).format("MM/DD/YYYY");
                 
-                var name = user.first_name + " " + user.last_name;
+                var name = user.title + " " + user.name + " " + user.surname;
 
                 return res.status(200).send({token: tok, exp: date, name: name});
             });
