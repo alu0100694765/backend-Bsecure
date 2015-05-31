@@ -362,12 +362,14 @@ app.post("/login", function (req, res) {
 app.post("/login-android", function (req, res) {
     authenticate(req.body.username, req.body.password, function (err, user) {
         if (user) {
-
             req.session.regenerate(function () {
                 var tok = createToken(user);
                 var payload = jwt.decode(tok, config.TOKEN_SECRET);
                 var date = moment.unix(payload.exp).format("MM/DD/YYYY");
-                return res.status(200).send({token: tok, exp: date});
+                
+                var name = user.first_name + " " + user.last_name;
+
+                return res.status(200).send({token: tok, exp: date, name: name});
             });
         }
     });
