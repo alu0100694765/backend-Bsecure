@@ -371,6 +371,8 @@ app.post("/login-android", function (req, res) {
 
                 return res.status(200).send({token: tok, exp: date, name: name});
             });
+        } else {
+            return res.status(401);
         }
     });
 });
