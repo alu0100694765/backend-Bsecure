@@ -1,28 +1,23 @@
 doctype html
 html(lang='en')
   head
-    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     title Profile page of #{result[0].username}
-    //if lt IE 9
-      script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
-    // Fichiers CSS
-    link(rel='stylesheet', href='/css/reset.css')
-    //if lt IE 9
-      link(rel='stylesheet', href='/css/cv.css', media='screen')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='HandheldFriendly', content='true')
+    meta(name='viewport', content='width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no')
     link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
-    link(rel='icon', href='/images/favicon.ico', type='image/x-icon')        
-    link(rel='stylesheet', media='screen and (max-width:480px)', href='/css/mobile.css')
-    link(rel='stylesheet', media='screen and (min-width:481px)', href='/css/cv.css')
-    link(rel='stylesheet', media='print', href='/css/print.css')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Simonetta:400,900|Balthazar')
+    link(rel='stylesheet', href='/css/styles.css', type='text/css')
+    link(rel='stylesheet', href='/css/responsive.css', type='text/css')
+    script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    script(src='http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js')
     script(type='text/javascript').
       function showInfo() {
       if("#{profile_type}" == "public") {
       var myList = document.getElementsByTagName("li");
       for (var i=0;i<myList.length;i++) {
-      if(myList[i].id != "heartPatient" && myList[i].id != "respiratoryPatient" && myList[i].id != "Hemophilia" && myList[i].id != "bloodGroup" && myList[i].id != "allergies" ) {  
+      if(myList[i].id != "heartPatient" && myList[i].id != "respiratoryPatient" && myList[i].id != "Hemophilia" && myList[i].id != "bloodGroup" && myList[i].id != "allergies" ) {
       myList[i].style["color"] = "transparent";
       myList[i].style["text-shadow"] = "0 0 20px rgba(0,0,0,0.5)";
       myList[i].innerHTML = "This is confidential Information, better luck next time";
@@ -37,82 +32,72 @@ html(lang='en')
       username.style["color"] = "transparent";
       username.style["text-shadow"] = "0 0 40px rgba(0,0,0,0.5)";
       username.innerHTML = "This is confidential Information";
-      }      
-      }            
-  body(onload='showInfo();')
-    // Header
-    header(role='banner')
-      .container_16
-        hgroup
-          h1#header #{result[0].title} #{result[0].name} #{result[0].surname} 
-          h2#username #{result[0].username}
-        figure
-          img(src='data:image/jpge;base64,#{result[0].img}')
-    // Corpus
-    section.container_16.clearfix(role='main')
-      .grid_16
-        // PI
-        .grid_8.pi
-          h3 Personal Information
-          ul#personalInfo
-            li
-              strong Name: 
-              #{result[0].title} #{result[0].name} #{result[0].surname}
-            li
-              strong Age: 
-              #{result[0].age}
-            li
-              strong Sex: 
-              #{result[0].name} #{result[0].sex}  
-            li
-              strong Id type: 
-              #{result[0].idType} #{result[0].idType} 
-            li
-              strong Id number: 
-              #{result[0].idNumber}
-        // Address
-        .grid_8.address
-          h3 Address
-          p#address #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
-      // Contact
-      .grid_8.contact
-        h3 Contact
-        ul#contact
-          li
-            strong E-mail: 
-            #{result[0].email} #{result[0].email}
-          li
-            strong Phone number:
-            #{result[0].phone}
-          li
-            strong Alternative phone number: 
-            #{result[0].secondPhone}
-      // Allergies
-      .grid_8.health
-        h3 Health Information
-        ul#health
-          li#heartPatient
-            strong Heart patient: 
-            #{result[0].bloodGroup} #{result[0].heartPatient}
-          li#respiratoryPatient
-            strong Respiratory problems: 
-            #{result[0].bloodGroup} #{result[0].respiratoryPatient}
-          li#Hemophilia
-            strong Hemophilia: 
-            #{result[0].bloodGroup} #{result[0].Hemophilia}
-          li#bloodGroup
-            strong Blood group: 
-            #{result[0].bloodGroup} #{result[0].bloodGroup} 
-          li#allergies
-            strong Allergies: 
-            #{result[0].allergies} #{result[0].allergies} 
-      // Other comments
-      .grid_16.other
-        h3 Other Comments
+      }
+      }
+  body
+    #w(itemscope='', itemtype='http://schema.org/Person')
+      header.clearfix
+        #info
+          h1
+            span(itemprop='name') #{result[0].title} #{result[0].name} #{result[0].surname}
+          h3
+            span(itemprop='jobTitle') #{result[0].username}
+        #photo
+          img(src='data:image/jpge;base64,#{result[0].img}', alt='#{result[0].name} #{result[0].surname}', itemprop='image')
+      section#profile
+        h2 Personal Information & Address
+        section#skills.clearfix(itemscope='', itemtype='http://schema.org/ItemList')
+          section#skills-left
+            h4(itemprop='about') Personal Information
+            ul#personalInfo
+              li(itemprop='itemListElement')
+                strong Name: 
+                |  #{result[0].title} #{result[0].name} #{result[0].surname}
+              li(itemprop='itemListElement')
+                strong Age: 
+                |  #{result[0].age}
+              li(itemprop='itemListElement')
+                strong Sex: 
+                |  #{result[0].sex}
+              li(itemprop='itemListElement')
+                strong ID Type: 
+                |  #{result[0].idType}
+              li(itemprop='itemListElement')
+                strong ID Number: 
+                |  #{result[0].idNumber}
+          section#skills-right
+            h4(itemprop='about') Address
+            p#address
+              | #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
+      section#skills.clearfix(itemscope='', itemtype='http://schema.org/ItemList')
+        h2(itemprop='name') Contact & Health Information
+        section#skills-left
+          h4(itemprop='about') Contact
+          ul
+            li(itemprop='itemListElement')
+              strong Email: 
+            li(itemprop='itemListElement')
+              strong Phone number: 
+            li(itemprop='itemListElement')
+              strong Alternative phone Number: 
+        section#skills-right
+          h4(itemprop='about') Health Information
+          ul#health
+            li#heartPatient(itemprop='itemListElement')
+              strong Heart patient: 
+              | #{result[0].heartPatient}
+            li#respiratoryPatient(itemprop='itemListElement')
+              strong Respiratory problems: 
+              | #{result[0].respiratoryPatient}
+            li#Hemophilia(itemprop='itemListElement')
+              strong Hemophilia: 
+              | #{result[0].Hemophilia}
+            li#bloodGroup(itemprop='itemListElement')
+              strong Blood group: 
+              | #{result[0].bloodGroup}
+            li#allergies(itemprop='itemListElement')
+              strong Allergies: 
+              | #{result[0].allergies}
+      section#education
+        h2 Other Comments
         p #{result[0].otherComments}
-    // Scripts JavaScript
-    script(src='/css/jquery-1.js')
-    script(src='/css/validate.js')
-    //if lt IE 9
-      script(src='scripts/placeholder.js')
-    script(src='/css/plugins.js')
