@@ -18,15 +18,19 @@ html
     script(type='text/javascript', src='js/custom.js')
     script(type='text/javascript', src='js/jquery.validate.min.js')
     script(type='text/javascript').
-      window.onbeforeunload = function(){
+      var formSubmitting = false;
+      window.onbeforeunload = function(){      
+      if (formSubmitting) {
+      return undefined;
+      } 
       return 'If you leave you will loose all the information.';
-      };    
-    script(type='text/javascript').
+      };        
       jQuery(document).ready(function(){
       var error = "#{error}";
       if(error == 'true') {
       jQuery('.login-alert').fadeIn();
       }
+      function setFormSubmitting() { formSubmitting = true; };
       function validateForm()
       {
       var a=document.forms["myform"]["id_username"].value;
@@ -63,13 +67,14 @@ html
       jQuery('#wizard3').smartWizard({ transitionEffect:'slideleft', onFinish: onFinishCallback});     
       function onFinishCallback(){
       if(validateForm()){
+      setFormSubmitting();  
       document.getElementById('myform').submit();
       }
       }
       jQuery('select, input:checkbox').uniform();
       });
   body.loginpage
-    form#myform.stdform(method='POST', action='/signup', enctype='multipart/form-data', name='myform')
+    form#myform.stdform(method='POST', action='/signup', onsubmit='setFormSubmitting()', enctype='multipart/form-data', name='myform')
       #wizard3.wizard.tabbedwizard
         ul.tabbedmenu
           li
