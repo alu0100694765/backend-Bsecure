@@ -34,13 +34,13 @@ html(lang='en')
       username.innerHTML = "This is confidential Information";
       }
       }
-  body
+  body(onload='showInfo();')
     #w(itemscope='', itemtype='http://schema.org/Person')
       header.clearfix
         #info
-          h1
+          h1#header
             span(itemprop='name') #{result[0].title} #{result[0].name} #{result[0].surname}
-          h3
+          h3#username
             span(itemprop='jobTitle') #{result[0].username}
         #photo
           img(src='data:image/jpge;base64,#{result[0].img}', alt='#{result[0].name} #{result[0].surname}', itemprop='image')
@@ -76,10 +76,13 @@ html(lang='en')
           ul
             li(itemprop='itemListElement')
               strong Email: 
+              | #{result[0].email}
             li(itemprop='itemListElement')
-              strong Phone number: 
+              strong Phone number:
+              | #{result[0].phone} 
             li(itemprop='itemListElement')
-              strong Alternative phone Number: 
+              strong Alternative phone Number:
+              | #{result[0].secondPhone} 
         section#skills-right
           h4(itemprop='about') Health Information
           ul#health
