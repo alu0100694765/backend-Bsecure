@@ -391,8 +391,10 @@ app.get('/profile', requiredAuthentication, function (req, res) {
 
 app.get('/users/:id', function (req, res) {
     var user_type = "public";
-    if (req.session.user.admin == "true" || req.session.user._id == req.params.id) {
-        user_type = "private";
+    if (req.session.user) {
+        if (req.session.user.admin == "true" || req.session.user._id == req.params.id) {
+            user_type = "private";
+        };
     };
     User.find({'_id': req.params.id}, function (err, item) {
         res.render('profile', {
