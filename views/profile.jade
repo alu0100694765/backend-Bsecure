@@ -32,6 +32,18 @@ html(lang='en')
       username.style["color"] = "transparent";
       username.style["text-shadow"] = "0 0 40px rgba(0,0,0,0.5)";
       username.innerHTML = "This is confidential Information";
+      } else{
+      header.innerHTML = "#{result[0].title} #{result[0].name} #{result[0].surname}";
+      username.innerHTML = "#{result[0].username}";
+      namePI.innerHTML = "<strong>Name: </strong> #{result[0].name} #{result[0].surname}";
+      age.innerHTML = "<strong>Age: </strong> #{result[0].age}";
+      sex.innerHTML = "<strong>Sex: </strong> #{result[0].sex}";
+      id_type.innerHTML = "<strong>ID Type: </strong> #{result[0].idType}";
+      id_number.innerHTML = "<strong>ID Number: </strong> #{result[0].idNumber}";
+      address.innerHTML = "#{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}";
+      email.innerHTML = "<strong>Email: </strong> #{result[0].email}";
+      phone.innerHTML = "<strong>ID Number: </strong> #{result[0].phone}";
+      second_phone.innerHTML = "<strong>ID Number: </strong> #{result[0].secondPhone}";
       }
       }
   body(onload='showInfo();')
@@ -39,9 +51,9 @@ html(lang='en')
       header.clearfix
         #info
           h1#header
-            span(itemprop='name') #{result[0].title} #{result[0].name} #{result[0].surname}
+            span(itemprop='name') Checking privacy...
           h3#username
-            span(itemprop='jobTitle') #{result[0].username}
+            span(itemprop='jobTitle') Checking privacy...
         #photo
           img(src='data:image/jpge;base64,#{result[0].img}', alt='#{result[0].name} #{result[0].surname}', itemprop='image')
       section#profile
@@ -50,39 +62,39 @@ html(lang='en')
           section#skills-left
             h4(itemprop='about') Personal Information
             ul#personalInfo
-              li(itemprop='itemListElement')
+              li#namePI(itemprop='itemListElement')
                 strong Name: 
-                |  #{result[0].title} #{result[0].name} #{result[0].surname}
-              li(itemprop='itemListElement')
+                |  Checking privacy...
+              li#age(itemprop='itemListElement')
                 strong Age: 
-                |  #{result[0].age}
-              li(itemprop='itemListElement')
+                |  Checking privacy...
+              li#sex(itemprop='itemListElement')
                 strong Sex: 
-                |  #{result[0].sex}
-              li(itemprop='itemListElement')
+                |  Checking privacy...
+              li#id_type(itemprop='itemListElement')
                 strong ID Type: 
-                |  #{result[0].idType}
-              li(itemprop='itemListElement')
+                |  Checking privacy...
+              li#id_number(itemprop='itemListElement')
                 strong ID Number: 
-                |  #{result[0].idNumber}
+                |  Checking privacy...
           section#skills-right
             h4(itemprop='about') Address
             p#address
-              | #{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}
+              | Checking privacy...
       section#skills.clearfix(itemscope='', itemtype='http://schema.org/ItemList')
         h2(itemprop='name') Contact & Health Information
         section#skills-left
           h4(itemprop='about') Contact
           ul
-            li(itemprop='itemListElement')
+            li#email(itemprop='itemListElement')
               strong Email: 
-              | #{result[0].email}
-            li(itemprop='itemListElement')
+              | Checking privacy...
+            li#phone(itemprop='itemListElement')
               strong Phone number:
-              | #{result[0].phone} 
-            li(itemprop='itemListElement')
+              | Checking privacy...
+            li#second_phone(itemprop='itemListElement')
               strong Alternative phone Number:
-              | #{result[0].secondPhone} 
+              | Checking privacy...
         section#skills-right
           h4(itemprop='about') Health Information
           ul#health
