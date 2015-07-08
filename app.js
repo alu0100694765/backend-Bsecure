@@ -31,7 +31,7 @@ function createToken(user) {
 /*
 Database and Models
 */
-mongoose.connect("mongodb://localhost/myapp");
+mongoose.connect(url);
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
@@ -320,6 +320,7 @@ app.post("/signup", userExist, function (req, res) {
             otherComments: comments,
             salt: salt,
             img: base64_image,
+            admin: "false",
             hash: hash,
         }).save(function (err, newUser) {
             if (err) throw err;
@@ -493,7 +494,7 @@ app.get('/data', function (req, res) {
 
 app.get('/stats', function (req, res) {
     if (req.session.user && req.session.user.admin == "true") {
-         User.find({}, function (err, item) {
+         User.find({'_id': req.session.user._id}, function (err, item) {
             User.find({'sex': 'Male'}, function (err, men) {
                 User.find({'sex': 'Female'}, function (err, women) {
                     User.find({'heartPatient': 'Yes'}, function (err, heart) {
