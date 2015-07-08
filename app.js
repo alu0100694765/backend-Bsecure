@@ -31,7 +31,7 @@ function createToken(user) {
 /*
 Database and Models
 */
-mongoose.connect(url);
+mongoose.connect("mongodb://localhost/myapp");
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
