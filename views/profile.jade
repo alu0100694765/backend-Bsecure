@@ -42,8 +42,8 @@ html(lang='en')
       id_number.innerHTML = "<strong>ID Number: </strong> #{result[0].idNumber}";
       address.innerHTML = "#{result[0].address}, #{result[0].city}, #{result[0].locality}, #{result[0].zipCode}, #{result[0].country}";
       email.innerHTML = "<strong>Email: </strong> #{result[0].email}";
-      phone.innerHTML = "<strong>ID Number: </strong> #{result[0].phone}";
-      second_phone.innerHTML = "<strong>ID Number: </strong> #{result[0].secondPhone}";
+      phone.innerHTML = "<strong>Phone number: </strong> #{result[0].phone}";
+      second_phone.innerHTML = "<strong>Alternative phone Number: </strong> #{result[0].secondPhone}";
       }
       }
   body(onload='showInfo();')
